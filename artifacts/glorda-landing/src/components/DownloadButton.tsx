@@ -3,7 +3,7 @@
  * Shows both store logos in one button.
  */
 
-const APP_STORE_URL = "https://apps.apple.com";
+const APP_STORE_URL = "https://apps.apple.com/sa/app/glorda/id6757753822?l=ar";
 const PLAY_STORE_URL = "https://play.google.com/store";
 
 function detectStore(): "ios" | "android" | "unknown" {
