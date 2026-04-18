@@ -35,8 +35,8 @@ export function Footer() {
       <div className="absolute bottom-0 end-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        {/* 5-column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+        {/* 6-column grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
 
           {/* Brand */}
           <div className="lg:col-span-1 flex flex-col gap-4 items-start">
@@ -48,15 +48,32 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Important links */}
+          {/* Legal links */}
           <div className="flex flex-col gap-3 items-start">
             <h4 className="text-white font-bold text-sm tracking-wide mb-1 text-start">
-              {isRtl ? "روابط مهمة" : "Important Links"}
+              {isRtl ? "قانوني" : "Legal"}
             </h4>
             {[
               { ar: "سياسة الخصوصية",  en: "Privacy Policy",     href: "/privacy" },
               { ar: "الشروط والأحكام", en: "Terms & Conditions", href: "/terms"   },
               { ar: "من نحن",          en: "About Us",           href: "/about"   },
+            ].map((l, i) => (
+              <a key={i} href={l.href}
+                className="flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors group">
+                <span className="w-1 h-1 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                {isRtl ? l.ar : l.en}
+              </a>
+            ))}
+          </div>
+
+          {/* Support links */}
+          <div className="flex flex-col gap-3 items-start">
+            <h4 className="text-white font-bold text-sm tracking-wide mb-1 text-start">
+              {isRtl ? "الدعم والمساعدة" : "Support"}
+            </h4>
+            {[
+              { ar: "الأسئلة الشائعة", en: "FAQ",     href: "/faq"     },
+              { ar: "الدعم",           en: "Support",  href: "/support" },
             ].map((l, i) => (
               <a key={i} href={l.href}
                 className="flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors group">
