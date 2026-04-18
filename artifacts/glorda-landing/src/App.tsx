@@ -8,6 +8,7 @@ import AboutPage from "@/pages/AboutPage";
 import PrivacyPage from "@/pages/PrivacyPage";
 import TermsPage from "@/pages/TermsPage";
 import SupportPage from "@/pages/SupportPage";
+import FaqPage from "@/pages/FaqPage";
 import { I18nProvider } from "@/lib/i18n";
 import appIcon from "@assets/IMG_5027_1776480151171.webp";
 import { useEffect } from "react";
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/privacy" component={PrivacyPage} />
       <Route path="/terms" component={TermsPage} />
       <Route path="/support" component={SupportPage} />
+      <Route path="/faq" component={FaqPage} />
       <Route component={NotFound} />
     </Switch>
   );
