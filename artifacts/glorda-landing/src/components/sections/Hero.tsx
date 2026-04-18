@@ -1,9 +1,8 @@
 import { useI18n } from "@/lib/i18n";
 import { motion } from "framer-motion";
-import { FaApple } from "react-icons/fa";
-import { SiGoogleplay } from "react-icons/si";
 import screenHome from "@assets/55626544-e2c3-4b50-9fd7-6cf13dad9ecf_1776482044919.jpeg";
 import screenProduct from "@assets/a917228f-6c09-429a-badc-f10a3116f015_1776482044919.jpeg";
+import { DownloadButton } from "@/components/DownloadButton";
 
 function PhoneMockup() {
   return (
@@ -116,21 +115,8 @@ export function Hero() {
             </motion.p>
 
             <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.5 }}
-              className={`flex flex-col sm:flex-row gap-3 justify-center ${isRtl ? "lg:justify-end" : "lg:justify-start"}`}>
-              <a href="#" className="group flex items-center gap-3 bg-white text-primary rounded-2xl px-5 py-3.5 font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
-                <FaApple className="text-2xl flex-shrink-0" />
-                <div className={`flex flex-col ${isRtl ? "items-end" : "items-start"}`}>
-                  <span className="text-[10px] text-primary/60 leading-none">{isRtl ? "حمل من" : "Download on the"}</span>
-                  <span className="text-sm leading-tight">App Store</span>
-                </div>
-              </a>
-              <a href="#" className="group flex items-center gap-3 bg-black/80 border border-white/10 text-white rounded-2xl px-5 py-3.5 font-bold hover:bg-black hover:-translate-y-0.5 transition-all duration-200">
-                <SiGoogleplay className="text-xl flex-shrink-0 text-secondary" />
-                <div className={`flex flex-col ${isRtl ? "items-end" : "items-start"}`}>
-                  <span className="text-[10px] text-white/50 leading-none">{isRtl ? "احصل عليه من" : "GET IT ON"}</span>
-                  <span className="text-sm leading-tight">Google Play</span>
-                </div>
-              </a>
+              className={`flex justify-center ${isRtl ? "lg:justify-end" : "lg:justify-start"}`}>
+              <DownloadButton variant="light" size="md" isRtl={isRtl} />
             </motion.div>
 
             {/* Stats */}

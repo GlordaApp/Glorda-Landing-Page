@@ -3,8 +3,7 @@ import whiteLogo from "@assets/IMG_7564_1776480165426.png";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaApple } from "react-icons/fa";
-import { SiGoogleplay } from "react-icons/si";
+import { DownloadButton } from "@/components/DownloadButton";
 
 export function Navbar() {
   const { language, setLanguage, t, isRtl } = useI18n();
@@ -61,10 +60,7 @@ export function Navbar() {
                 {language === "en" ? "AR" : "EN"}
               </button>
 
-              <a href="#" className="flex items-center gap-2 bg-white text-primary rounded-xl px-4 py-1.5 text-xs font-bold hover:bg-white/90 transition-all shadow-md">
-                <FaApple size={14} />
-                <span>{isRtl ? "حمّل التطبيق" : "Download App"}</span>
-              </a>
+              <DownloadButton variant="light" size="sm" isRtl={isRtl} />
             </div>
           </div>
 
@@ -94,12 +90,7 @@ export function Navbar() {
                 </a>
               ))}
               <div className={`pt-3 flex gap-2 ${isRtl ? "flex-row-reverse" : ""}`}>
-                <a href="#" className="flex-1 flex items-center justify-center gap-2 bg-white text-primary rounded-xl py-2.5 text-xs font-bold">
-                  <FaApple size={14} /> App Store
-                </a>
-                <a href="#" className="flex-1 flex items-center justify-center gap-2 bg-black/50 border border-white/10 text-white rounded-xl py-2.5 text-xs font-bold">
-                  <SiGoogleplay size={12} className="text-secondary" /> Google Play
-                </a>
+                <DownloadButton variant="light" size="sm" isRtl={isRtl} className="w-full justify-center" />
               </div>
             </div>
           </motion.div>

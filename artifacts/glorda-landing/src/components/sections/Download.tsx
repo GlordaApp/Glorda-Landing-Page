@@ -1,7 +1,6 @@
 import { useI18n } from "@/lib/i18n";
 import { motion } from "framer-motion";
-import { FaApple } from "react-icons/fa";
-import { SiGoogleplay } from "react-icons/si";
+import { DownloadButton } from "@/components/DownloadButton";
 
 export function Download() {
   const { t, isRtl } = useI18n();
@@ -29,21 +28,8 @@ export function Download() {
               <h2 className="text-3xl md:text-4xl font-extrabold mb-4 leading-tight">{t("download.title")}</h2>
               <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-sm">{t("download.subtitle")}</p>
 
-              <div className={`flex flex-col sm:flex-row gap-3 justify-center ${isRtl ? "md:justify-end" : "md:justify-start"}`}>
-                <a href="#" className="flex items-center gap-3 bg-white text-primary rounded-2xl px-5 py-3.5 font-bold hover:bg-gray-50 hover:-translate-y-0.5 transition-all duration-200 shadow-lg">
-                  <FaApple className="text-2xl flex-shrink-0" />
-                  <div className={`flex flex-col ${isRtl ? "items-end" : "items-start"}`}>
-                    <span className="text-[10px] text-primary/60 leading-none">{isRtl ? "حمل من" : "Download on the"}</span>
-                    <span className="text-sm leading-tight">App Store</span>
-                  </div>
-                </a>
-                <a href="#" className="flex items-center gap-3 bg-black/50 border border-white/10 text-white rounded-2xl px-5 py-3.5 font-bold hover:bg-black/60 hover:-translate-y-0.5 transition-all duration-200">
-                  <SiGoogleplay className="text-xl flex-shrink-0 text-secondary" />
-                  <div className={`flex flex-col ${isRtl ? "items-end" : "items-start"}`}>
-                    <span className="text-[10px] text-white/50 leading-none">{isRtl ? "احصل عليه من" : "GET IT ON"}</span>
-                    <span className="text-sm leading-tight">Google Play</span>
-                  </div>
-                </a>
+              <div className={`flex justify-center ${isRtl ? "md:justify-end" : "md:justify-start"}`}>
+                <DownloadButton variant="light" size="md" isRtl={isRtl} />
               </div>
             </div>
 
