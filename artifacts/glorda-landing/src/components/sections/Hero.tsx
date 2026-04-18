@@ -1,7 +1,6 @@
 import { useI18n } from "@/lib/i18n";
 import { motion } from "framer-motion";
 import screenHome from "@assets/55626544-e2c3-4b50-9fd7-6cf13dad9ecf_1776482044919.jpeg";
-import screenProduct from "@assets/a917228f-6c09-429a-badc-f10a3116f015_1776482044919.jpeg";
 import { DownloadButton } from "@/components/DownloadButton";
 
 function PhoneMockup() {
@@ -24,21 +23,6 @@ function PhoneMockup() {
         <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
       </div>
 
-      {/* Floating second phone (product screen) */}
-      <motion.div
-        animate={{ y: [-8, 8, -8], rotate: [2, -2, 2] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -bottom-6 -right-16 w-[130px] h-[260px] rounded-[1.6rem] bg-[#111] shadow-2xl overflow-hidden border-[2px] border-white/20 z-10"
-      >
-        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full z-20" />
-        <img
-          src={screenProduct}
-          alt="Product"
-          className="w-full h-full object-cover object-top"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-transparent pointer-events-none" />
-      </motion.div>
-
       {/* Floating badge — location */}
       <motion.div
         animate={{ y: [-5, 5, -5] }}
@@ -50,7 +34,7 @@ function PhoneMockup() {
         </div>
         <div>
           <div className="text-[9px] text-gray-400 leading-none">التوصيل إلى</div>
-          <div className="text-[11px] font-bold text-gray-800 leading-tight mt-0.5">الدوح الكبير</div>
+          <div className="text-[11px] font-bold text-gray-800 leading-tight mt-0.5">وين ماودّك</div>
         </div>
       </motion.div>
 
