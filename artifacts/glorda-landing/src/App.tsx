@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import { I18nProvider } from "@/lib/i18n";
-import appIcon from "@assets/IMG_5027_1776480151171.jpeg";
+import appIcon from "@assets/IMG_5027_1776480151171.webp";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient();

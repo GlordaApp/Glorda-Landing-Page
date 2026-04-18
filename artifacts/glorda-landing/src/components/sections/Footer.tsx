@@ -1,5 +1,5 @@
 import { useI18n } from "@/lib/i18n";
-import whiteLogo from "@assets/IMG_7564_1776480165426.png";
+import whiteLogo from "@assets/IMG_7564_1776480165426.webp";
 import {
   FaInstagram,
   FaTiktok,

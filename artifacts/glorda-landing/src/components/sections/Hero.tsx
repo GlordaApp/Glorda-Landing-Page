@@ -1,6 +1,6 @@
 import { useI18n } from "@/lib/i18n";
 import { motion } from "framer-motion";
-import screenHome from "@assets/55626544-e2c3-4b50-9fd7-6cf13dad9ecf_1776482044919.jpeg";
+import screenHome from "@assets/55626544-e2c3-4b50-9fd7-6cf13dad9ecf_1776482044919.webp";
 import { DownloadButton } from "@/components/DownloadButton";
 
 function PhoneMockup() {

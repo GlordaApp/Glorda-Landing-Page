@@ -2,12 +2,12 @@ import { useI18n } from "@/lib/i18n";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 
-import screenHome      from "@assets/55626544-e2c3-4b50-9fd7-6cf13dad9ecf_1776482044919.jpeg";
-import screenProduct1  from "@assets/a917228f-6c09-429a-badc-f10a3116f015_1776482044919.jpeg";
-import screenProduct2  from "@assets/cc530233-8d4d-404b-8041-85957a1a52f1_1776482044919.jpeg";
-import screenProduct3  from "@assets/36729288-66d0-4b4c-bf46-ff21e710ac48_1776482044919.jpeg";
-import screenOccasions from "@assets/d6e90815-2c73-42bb-97ce-9c7fa668bfbe_1776482044919.jpeg";
-import screenExtra     from "@assets/7a7be72c-3110-44af-bf0c-f27ce80e3549_1776482044919.jpeg";
+import screenHome      from "@assets/55626544-e2c3-4b50-9fd7-6cf13dad9ecf_1776482044919.webp";
+import screenProduct1  from "@assets/a917228f-6c09-429a-badc-f10a3116f015_1776482044919.webp";
+import screenProduct2  from "@assets/cc530233-8d4d-404b-8041-85957a1a52f1_1776482044919.webp";
+import screenProduct3  from "@assets/36729288-66d0-4b4c-bf46-ff21e710ac48_1776482044919.webp";
+import screenOccasions from "@assets/d6e90815-2c73-42bb-97ce-9c7fa668bfbe_1776482044919.webp";
+import screenExtra     from "@assets/7a7be72c-3110-44af-bf0c-f27ce80e3549_1776482044919.webp";
 
 const screens = [
   {
