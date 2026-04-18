@@ -21,9 +21,9 @@ export default function Home() {
         <About />
         <Features />
         <HowItWorks />
-        <Merchants />
         <AppScreenshots />
         <Testimonials />
+        <Merchants />
         <Download />
       </main>
       <Footer />

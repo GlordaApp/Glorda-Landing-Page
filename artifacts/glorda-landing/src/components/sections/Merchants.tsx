@@ -1,32 +1,42 @@
 import { useI18n } from "@/lib/i18n";
 import { motion } from "framer-motion";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-const merchantFeatures = [
+const storeCategories = [
   {
-    iconPath: "M13 2.003A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0013 2.003zm1 14.993h-2v-6h2v6zm0-8h-2V7h2v2z",
-    ar: "افتح متجرك في دقائق",
-    en: "Open your store in minutes",
+    ar: "متاجر الورود",
+    en: "Flower Stores",
+    desc_ar: "باقات وتنسيقات من أرقى المحلات",
+    desc_en: "Bouquets & arrangements from the finest shops",
+    iconPath: "M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67C14.5 20.88 13.38 22 12 22zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5 0-.16-.08-.28-.14-.35-.41-.47-.63-1.06-.63-1.65 0-1.38 1.12-2.5 2.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 10 6.5 10s1.5.67 1.5 1.5S7.33 13 6.5 13zm3-4C8.67 9 8 8.33 8 7.5S8.67 6 9.5 6s1.5.67 1.5 1.5S10.33 9 9.5 9zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 6 14.5 6s1.5.67 1.5 1.5S15.33 9 14.5 9zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 10 17.5 10s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z",
+    bg: "bg-rose-50",
+    iconColor: "#A51245",
   },
   {
-    iconPath: "M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z",
-    ar: "ارفع منتجاتك بسهولة",
-    en: "Upload products easily",
+    ar: "متاجر الكيك",
+    en: "Cake Stores",
+    desc_ar: "كيك مخصص لكل مناسبة",
+    desc_en: "Custom cakes for every occasion",
+    iconPath: "M18.5 3H6c-1.1 0-2 .9-2 2v5.71c-1.17.49-2 1.63-2 2.79V19c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-5.5c0-1.16-.83-2.3-2-2.79V5c0-1.1-.9-2-1.5-2zM19 19H5v-5.5c0-.28.22-.5.5-.5s.5.22.5.5V15h2v-1.5c0-.28.22-.5.5-.5s.5.22.5.5V15h2v-1.5c0-.28.22-.5.5-.5s.5.22.5.5V15h2v-1.5c0-.28.22-.5.5-.5s.5.22.5.5V15h2v-1.5c0-.28.22-.5.5-.5s.5.22.5.5V19zM17 10H7V5h10v5z",
+    bg: "bg-amber-50",
+    iconColor: "#C8963E",
   },
   {
-    iconPath: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S14.93 14 13 14s-3.5-1.57-3.5-3.5S11.07 7 13 7zM3 15.99V17h20v-.99l-2.44-2.44c-.52.28-1.07.44-1.56.44-2.76 0-5-2.24-5-5S16.24 7 13 7 7.24 9.24 7 12c0 1.67.78 3.15 2 4.12L3 15.99z",
-    ar: "إدارة الطلبات",
-    en: "Manage orders",
+    ar: "متاجر الهدايا",
+    en: "Gift Stores",
+    desc_ar: "هدايا فاخرة لكل مناسبة",
+    desc_en: "Luxury gifts for every occasion",
+    iconPath: "M20 6h-2.18c.07-.43.18-.86.18-1 0-2.21-1.79-4-4-4-1.05 0-1.96.42-2.66 1.1L10 3.44l-1.34-1.34C7.96 1.42 7.05 1 6 1 3.79 1 2 2.79 2 5c0 .14.11.57.18 1H0v2h20V6zM6 3c1.1 0 2 .9 2 2H4c0-1.1.9-2 2-2zm6 0c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zM2 19c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-9H2v9zm9-8h2v6h-2v-6zM7 11h2v6H7v-6zm8 0h2v6h-2v-6z",
+    bg: "bg-violet-50",
+    iconColor: "#6B3FA0",
   },
   {
-    iconPath: "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z",
-    ar: "تقارير واضحة",
-    en: "Clear reports",
-  },
-  {
-    iconPath: "M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z",
-    ar: "دعم فني على مدار الساعة",
-    en: "24/7 technical support",
+    ar: "متاجر الحلويات",
+    en: "Sweet Stores",
+    desc_ar: "حلويات شرقية وغربية متنوعة",
+    desc_en: "Eastern & Western sweets variety",
+    iconPath: "M18 12h-1.55l-.95-4.75A2.007 2.007 0 0013.55 5.5H10.5L9.75 3H7v2h1.25l2 8H18v-1zm.5 4c-.83 0-1.5.67-1.5 1.5S17.67 19 18.5 19s1.5-.67 1.5-1.5S19.33 16 18.5 16zm-9 0c-.83 0-1.5.67-1.5 1.5S8.67 19 9.5 19s1.5-.67 1.5-1.5S10.33 16 9.5 16zM4 7h2v2H4V7zm0 4h2v2H4v-2zm0 4h2v2H4v-2zm0-8h2V5H4v2z",
+    bg: "bg-emerald-50",
+    iconColor: "#059669",
   },
 ];
 
@@ -34,123 +44,57 @@ export function Merchants() {
   const { t, isRtl } = useI18n();
 
   return (
-    <section id="merchants" className="py-24 bg-white overflow-hidden relative">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#FDF8F5] to-transparent" />
-      </div>
+    <section id="merchants" className="py-20 bg-[#FDF8F5]">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
-        <div className={`flex flex-col lg:flex-row items-center gap-14 ${isRtl ? "lg:flex-row-reverse" : ""}`}>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-center mb-12">
+          <span className="text-primary text-sm font-bold tracking-widest uppercase">
+            {isRtl ? "اكتشف المتاجر" : "Discover Stores"}
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-4">
+            {t("merchants.customer.title")}
+          </h2>
+          <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed">
+            {t("merchants.customer.desc")}
+          </p>
+        </motion.div>
 
-          {/* Left: Text */}
-          <motion.div initial={{ opacity:0, x: isRtl ? 40 : -40 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.7 }}
-            className={`lg:w-1/2 ${isRtl ? "text-right" : "text-left"}`}>
-            <span className="inline-block bg-primary/10 text-primary text-sm font-bold px-4 py-1.5 rounded-full mb-4">
-              {t("merchants.title")}
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-5 leading-tight">
-              {t("merchants.subtitle")}
-            </h2>
-            <p className="text-gray-500 text-lg leading-relaxed mb-8">{t("merchants.desc")}</p>
-
-            <ul className="space-y-3 mb-10">
-              {merchantFeatures.map((f, i) => (
-                <motion.li key={i} initial={{ opacity:0, x: isRtl ? 10 : -10 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ delay: i*0.07 }}
-                  className={`flex items-center gap-3 ${isRtl ? "flex-row-reverse" : ""}`}>
-                  <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#A51245">
-                      <path d={f.iconPath} />
-                    </svg>
-                  </div>
-                  <span className="text-gray-700 font-medium text-sm">{isRtl ? f.ar : f.en}</span>
-                </motion.li>
-              ))}
-            </ul>
-
-            <a href="#" className={`inline-flex items-center gap-3 bg-primary text-white rounded-2xl px-8 py-4 font-bold text-base shadow-lg shadow-primary/30 hover:bg-primary/90 hover:-translate-y-0.5 transition-all duration-200 ${isRtl ? "flex-row-reverse" : ""}`}>
-              {t("merchants.cta")}
-              {isRtl ? <FaArrowLeft className="text-sm" /> : <FaArrowRight className="text-sm" />}
-            </a>
-          </motion.div>
-
-          {/* Right: Dashboard mockup */}
-          <motion.div initial={{ opacity:0, x: isRtl ? -40 : 40 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.7, delay:0.1 }}
-            className="lg:w-1/2 w-full">
-            <div className="relative">
-              {/* Glow */}
-              <div className="absolute inset-4 bg-primary/10 rounded-3xl blur-2xl" />
-              <div className="relative bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-                {/* Browser top bar */}
-                <div className="h-11 bg-gray-50 border-b border-gray-100 flex items-center px-4 gap-2">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                  </div>
-                  <div className="mx-auto flex-1 max-w-xs mx-4">
-                    <div className="h-6 bg-white rounded-lg border border-gray-200 flex items-center px-2">
-                      <div className="h-2 w-3/4 bg-gray-200 rounded" />
-                    </div>
-                  </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+          {storeCategories.map((cat, i) => (
+            <motion.div key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center gap-3"
+            >
+              <div className={`w-14 h-14 rounded-2xl ${cat.bg} flex items-center justify-center`}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill={cat.iconColor}>
+                  <path d={cat.iconPath} />
+                </svg>
+              </div>
+              <div>
+                <div className="font-bold text-gray-900 text-base">
+                  {isRtl ? cat.ar : cat.en}
                 </div>
-                {/* Dashboard content */}
-                <div className={`p-5 flex gap-4 ${isRtl ? "flex-row-reverse" : ""}`}>
-                  {/* Sidebar */}
-                  <div className={`w-12 flex flex-col items-center gap-3 py-2 ${isRtl ? "order-last" : ""}`}>
-                    {[
-                      "M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z",
-                      "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z",
-                      "M19 9h-4V3H9v6H5l7 7 7-7z",
-                      "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z",
-                    ].map((p, i) => (
-                      <div key={i} className={`w-9 h-9 rounded-xl flex items-center justify-center ${i === 0 ? "bg-primary" : "bg-gray-100"}`}>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill={i === 0 ? "white" : "#9CA3AF"}>
-                          <path d={p} />
-                        </svg>
-                      </div>
-                    ))}
-                  </div>
-                  {/* Main area */}
-                  <div className="flex-1 space-y-3">
-                    {/* Stats row */}
-                    <div className="grid grid-cols-3 gap-2">
-                      {[
-                        { v: "1,240", l: isRtl ? "الإيرادات" : "Revenue", c: "bg-primary/10 text-primary" },
-                        { v: "86", l: isRtl ? "الطلبات" : "Orders", c: "bg-amber-50 text-amber-700" },
-                        { v: "42", l: isRtl ? "المنتجات" : "Products", c: "bg-green-50 text-green-700" },
-                      ].map((stat, i) => (
-                        <div key={i} className={`rounded-xl p-3 ${stat.c.split(" ")[0]} border border-current/10`}>
-                          <div className={`text-base font-extrabold ${stat.c.split(" ")[1]}`}>{stat.v}</div>
-                          <div className="text-xs text-gray-500 mt-0.5">{stat.l}</div>
-                        </div>
-                      ))}
-                    </div>
-                    {/* Chart placeholder */}
-                    <div className="h-20 bg-gray-50 rounded-xl border border-gray-100 relative overflow-hidden flex items-end p-3 gap-1">
-                      {[40,65,45,70,55,80,60,75,50,85].map((h, i) => (
-                        <div key={i} className="flex-1 rounded-sm bg-primary/30" style={{ height: `${h}%` }} />
-                      ))}
-                    </div>
-                    {/* Recent orders */}
-                    <div className="space-y-2">
-                      {[
-                        { dot: "bg-green-400", ar: "طلب #1024 – ورود", en: "Order #1024 – Flowers", s: isRtl ? "مكتمل" : "Done" },
-                        { dot: "bg-amber-400", ar: "طلب #1025 – كيك", en: "Order #1025 – Cake", s: isRtl ? "قيد التنفيذ" : "Processing" },
-                      ].map((o, i) => (
-                        <div key={i} className={`flex items-center gap-2 text-xs ${isRtl ? "flex-row-reverse" : ""}`}>
-                          <div className={`w-2 h-2 rounded-full flex-shrink-0 ${o.dot}`} />
-                          <span className="text-gray-700 flex-1">{isRtl ? o.ar : o.en}</span>
-                          <span className="text-gray-400">{o.s}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                <div className="text-gray-400 text-sm mt-1 leading-snug">
+                  {isRtl ? cat.desc_ar : cat.desc_en}
                 </div>
               </div>
-            </div>
-          </motion.div>
-
+            </motion.div>
+          ))}
         </div>
+
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+          className="mt-10 text-center">
+          <p className="text-gray-400 text-sm">
+            {isRtl
+              ? "أكثر من ٥٠٠ متجر متخصص في انتظارك داخل التطبيق"
+              : "Over 500 specialized stores waiting for you inside the app"}
+          </p>
+        </motion.div>
+
       </div>
     </section>
   );

@@ -54,6 +54,8 @@ const translations = {
     "merchants.subtitle": "Grow your business with Glorda",
     "merchants.desc": "Open your store in minutes, upload products easily, manage orders, view clear reports, and get 24/7 tech support.",
     "merchants.cta": "Open Your Store Now",
+    "merchants.customer.title": "All Your Favorite Stores in One App",
+    "merchants.customer.desc": "Flowers, cakes, gifts, and sweets — browse hundreds of premium boutiques and order with ease.",
 
     "screenshots.title": "App Screenshots",
 
@@ -126,6 +128,8 @@ const translations = {
     "merchants.subtitle": "نمّي عملك مع غلوردا",
     "merchants.desc": "افتح متجرك في دقائق، ارفع المنتجات بسهولة، أدر الطلبات، اعرض تقارير واضحة، واحصل على دعم فني على مدار الساعة.",
     "merchants.cta": "افتح متجرك الآن",
+    "merchants.customer.title": "كل متاجرك المفضلة في تطبيق واحد",
+    "merchants.customer.desc": "ورود وكيك وهدايا وحلويات — تصفح مئات المتاجر المتخصصة واطلب بكل سهولة.",
 
     "screenshots.title": "لقطات من التطبيق",
 
