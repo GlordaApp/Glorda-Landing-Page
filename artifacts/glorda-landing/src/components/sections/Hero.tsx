@@ -82,12 +82,6 @@ export function Hero() {
 
           {/* Text side */}
           <div className={`lg:w-1/2 text-white text-center ${isRtl ? "lg:text-right" : "lg:text-left"}`}>
-            <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5, delay:0.1 }}
-              className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6 text-sm font-medium backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-              {t("hero.badge")}
-            </motion.div>
-
             <motion.h1 initial={{ opacity:0, y:30 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.7, delay:0.2 }}
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-6">
               {t("hero.title")}
