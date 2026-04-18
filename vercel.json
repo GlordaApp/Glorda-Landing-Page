@@ -2,6 +2,7 @@
   "buildCommand": "pnpm --filter @workspace/glorda-landing run build",
   "outputDirectory": "artifacts/glorda-landing/dist",
   "installCommand": "pnpm install",
+  "framework": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
