@@ -32,27 +32,6 @@ export function Download() {
               </div>
             </div>
 
-            {/* QR visual */}
-            <div className="flex-shrink-0 hidden md:block">
-              <div className="w-48 h-48 relative">
-                <div className="w-full h-full bg-white rounded-2xl p-4 shadow-xl">
-                  <div className="w-full h-full grid grid-cols-7 gap-0.5">
-                    {Array.from({ length: 49 }).map((_, i) => {
-                      const corners = [0,1,2,3,4,5,6,7,13,14,20,21,27,28,34,35,41,42,43,44,45,46,48];
-                      const pattern = [16,18,22,24,26,30,32,36,38];
-                      const isCorner = corners.includes(i);
-                      const isPat = pattern.includes(i);
-                      return (
-                        <div key={i} className={`rounded-sm ${isCorner ? "bg-primary" : isPat ? "bg-primary/60" : i % 3 === 0 ? "bg-gray-200" : "bg-transparent"}`} />
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-white/60 text-xs font-medium whitespace-nowrap">
-                  {isRtl ? "امسح للتحميل" : "Scan to download"}
-                </div>
-              </div>
-            </div>
           </div>
         </motion.div>
       </div>
