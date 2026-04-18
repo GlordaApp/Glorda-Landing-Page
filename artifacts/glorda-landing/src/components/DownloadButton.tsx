@@ -38,7 +38,7 @@ const GooglePlayIcon = ({ size = 18 }: { size?: number }) => (
   </svg>
 );
 
-type ButtonVariant = "light" | "dark" | "outline-light";
+type ButtonVariant = "light" | "dark" | "outline-light" | "primary";
 type ButtonSize = "sm" | "md";
 
 interface DownloadButtonProps {
@@ -72,6 +72,7 @@ export function DownloadButton({
     light: "bg-white text-primary border-white/20 shadow-md hover:bg-gray-50",
     dark: "bg-[#111] text-white border-white/10 hover:bg-[#222]",
     "outline-light": "bg-white/10 text-white border-white/20 hover:bg-white/20",
+    primary: "bg-primary text-white border-primary shadow-md hover:bg-primary/90",
   };
 
   return (
