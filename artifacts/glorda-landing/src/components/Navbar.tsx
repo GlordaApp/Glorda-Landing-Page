@@ -36,7 +36,7 @@ export function Navbar() {
 
           {/* Logo */}
           <a href="#home" className="flex-shrink-0 flex items-center">
-            <img src={whiteLogo} alt="Glorda" className="h-9 w-auto object-contain" data-testid="navbar-logo" />
+            <img src={whiteLogo} alt="Glorda" className="h-12 w-auto object-contain drop-shadow-sm" data-testid="navbar-logo" />
           </a>
 
           {/* Desktop Nav */}
@@ -51,13 +51,16 @@ export function Navbar() {
             </div>
 
             <div className={`flex items-center gap-3 ${isRtl ? "flex-row-reverse" : ""}`}>
-              <button onClick={toggleLang}
-                className="flex items-center gap-1.5 text-white/70 hover:text-white text-xs font-semibold tracking-widest uppercase transition-colors border border-white/20 rounded-lg px-3 py-1.5 hover:bg-white/10"
-                data-testid="lang-toggle">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              <button
+                onClick={toggleLang}
+                className="flex items-center gap-2 text-white/85 hover:text-white text-[11px] font-bold tracking-wider transition-all duration-200 border border-white/25 rounded-xl px-3.5 py-2 hover:bg-white/15 hover:border-white/40 bg-white/5"
+                data-testid="lang-toggle"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
                 </svg>
-                {language === "en" ? "AR" : "EN"}
+                {language === "ar" ? "EN" : "عربي"}
               </button>
 
               <DownloadButton variant="light" size="sm" isRtl={isRtl} />
@@ -66,9 +69,15 @@ export function Navbar() {
 
           {/* Mobile right side */}
           <div className={`flex md:hidden items-center gap-2 ${isRtl ? "" : "ms-auto"} ${isRtl ? "me-auto" : ""}`}>
-            <button onClick={toggleLang}
-              className="text-white/70 hover:text-white text-xs font-bold tracking-widest uppercase transition-colors border border-white/20 rounded-lg px-2.5 py-1.5">
-              {language === "en" ? "AR" : "EN"}
+            <button
+              onClick={toggleLang}
+              className="flex items-center gap-1.5 text-white/85 text-[11px] font-bold tracking-wider border border-white/25 rounded-xl px-3 py-1.5 hover:bg-white/15 bg-white/5 transition-all"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+              </svg>
+              {language === "ar" ? "EN" : "عربي"}
             </button>
             <button onClick={() => setIsOpen(!isOpen)} className="text-white p-2 rounded-lg hover:bg-white/10 transition-colors" data-testid="mobile-menu-btn">
               {isOpen ? <X size={22} /> : <Menu size={22} />}

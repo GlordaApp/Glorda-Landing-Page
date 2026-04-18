@@ -186,13 +186,27 @@ const translations = {
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
+const LANG_KEY = "glorda_lang";
+
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("ar");
+  const [language, setLanguageState] = useState<Language>(() => {
+    try {
+      const saved = localStorage.getItem(LANG_KEY) as Language | null;
+      return saved === "en" || saved === "ar" ? saved : "ar";
+    } catch {
+      return "ar";
+    }
+  });
 
   useEffect(() => {
     document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = language;
   }, [language]);
+
+  const setLanguage = (lang: Language) => {
+    try { localStorage.setItem(LANG_KEY, lang); } catch {}
+    window.location.reload();
+  };
 
   const t = (key: string): string => {
     // @ts-ignore

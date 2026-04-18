@@ -52,10 +52,10 @@ const screens = [
   },
   {
     src: screenExtra,
-    labelAr: "تجربة التسوق",
-    labelEn: "Shopping Experience",
-    descAr: "تجربة تسوق سلسة وسريعة من أي مكان",
-    descEn: "A smooth and fast shopping experience anywhere",
+    labelAr: "تواصل بداخل التطبيق",
+    labelEn: "In-App Chat",
+    descAr: "تواصل مع المتاجر مباشرةً من داخل التطبيق بكل سهولة",
+    descEn: "Chat directly with stores right inside the app",
     accent: "#C8963E",
   },
 ];
