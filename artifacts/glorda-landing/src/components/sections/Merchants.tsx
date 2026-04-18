@@ -1,6 +1,5 @@
 import { useI18n } from "@/lib/i18n";
 import { motion } from "framer-motion";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const joinFeatureIcons = [
   "M19 3H5c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h14c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z",
@@ -26,11 +25,12 @@ export function Merchants() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className={`flex flex-col lg:flex-row items-center gap-14 ${isRtl ? "lg:flex-row-reverse" : ""}`}>
+        {/* Direction-aware two-column: visual at inline-start, text at inline-end */}
+        <div className="flex flex-col lg:flex-row items-center gap-14">
 
-          {/* Left: visual */}
+          {/* Visual panel — inline-start */}
           <motion.div
-            initial={{ opacity: 0, x: isRtl ? 40 : -40 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
@@ -39,12 +39,10 @@ export function Merchants() {
             <div className="relative">
               <div className="absolute inset-6 bg-primary/10 rounded-3xl blur-3xl" />
               <div className="relative bg-gradient-to-br from-primary to-[#7a0d35] rounded-3xl p-8 text-white overflow-hidden shadow-2xl shadow-primary/30">
-                {/* Decorative circles */}
-                <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-white/5 -translate-y-1/3 translate-x-1/3" />
-                <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full bg-secondary/10 translate-y-1/3 -translate-x-1/3" />
+                <div className="absolute top-0 end-0 w-40 h-40 rounded-full bg-white/5 -translate-y-1/3 translate-x-1/3" />
+                <div className="absolute bottom-0 start-0 w-32 h-32 rounded-full bg-secondary/10 translate-y-1/3 -translate-x-1/3" />
 
                 <div className="relative space-y-5">
-                  {/* Header */}
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
@@ -57,7 +55,6 @@ export function Merchants() {
                     </div>
                   </div>
 
-                  {/* Stats */}
                   <div className="grid grid-cols-2 gap-3">
                     {[
                       { v: "500+", l: isRtl ? "متجر مسجّل" : "Registered Stores" },
@@ -72,9 +69,8 @@ export function Merchants() {
                     ))}
                   </div>
 
-                  {/* Fake chart bars */}
                   <div className="bg-white/10 rounded-2xl p-4 border border-white/10">
-                    <div className={`text-xs text-white/60 mb-3 ${isRtl ? "text-right" : ""}`}>{isRtl ? "نمو المبيعات" : "Sales Growth"}</div>
+                    <div className="text-xs text-white/60 mb-3 text-start">{isRtl ? "نمو المبيعات" : "Sales Growth"}</div>
                     <div className="flex items-end gap-1.5 h-14">
                       {[35, 55, 42, 70, 58, 82, 65, 90, 75, 100].map((h, i) => (
                         <div key={i} className="flex-1 rounded-sm bg-white/30 hover:bg-secondary/80 transition-colors"
@@ -87,13 +83,13 @@ export function Merchants() {
             </div>
           </motion.div>
 
-          {/* Right: text */}
+          {/* Text — inline-end */}
           <motion.div
-            initial={{ opacity: 0, x: isRtl ? -40 : 40 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className={`lg:w-7/12 ${isRtl ? "text-right" : "text-left"}`}
+            className="lg:w-7/12 text-start"
           >
             <span className="inline-block bg-secondary/15 text-secondary text-sm font-bold px-4 py-1.5 rounded-full mb-5">
               {t("join.badge")}
@@ -112,21 +108,27 @@ export function Merchants() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className={`flex items-center gap-3 bg-[#FDF8F5] rounded-2xl px-4 py-3 border border-gray-100 ${isRtl ? "flex-row-reverse" : ""}`}
+                  className="flex items-center gap-3 bg-[#FDF8F5] rounded-2xl px-4 py-3 border border-gray-100"
                 >
                   <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="#A51245">
                       <path d={joinFeatureIcons[i]} />
                     </svg>
                   </div>
-                  <span className="text-gray-700 font-medium text-sm">{f}</span>
+                  <span className="text-gray-700 font-medium text-sm text-start">{f}</span>
                 </motion.div>
               ))}
             </div>
 
-            <a href="#" className={`inline-flex items-center gap-3 bg-primary text-white rounded-2xl px-8 py-4 font-bold text-base shadow-lg shadow-primary/25 hover:bg-primary/90 hover:-translate-y-0.5 transition-all duration-200 ${isRtl ? "flex-row-reverse" : ""}`}>
+            <a href="#"
+              className="inline-flex items-center gap-3 bg-primary text-white rounded-2xl px-8 py-4 font-bold text-base shadow-lg shadow-primary/25 hover:bg-primary/90 hover:-translate-y-0.5 transition-all duration-200"
+            >
               {t("join.cta")}
-              {isRtl ? <FaArrowLeft className="text-sm" /> : <FaArrowRight className="text-sm" />}
+              {/* Chevron flips with direction */}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                className="rtl:rotate-180 transition-transform">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
             </a>
           </motion.div>
 

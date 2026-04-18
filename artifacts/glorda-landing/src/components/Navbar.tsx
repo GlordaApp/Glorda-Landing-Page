@@ -32,47 +32,47 @@ export function Navbar() {
         : "bg-primary/80 backdrop-blur-md"
     } border-b border-white/10`}>
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
-        <div className="flex items-center h-18 py-3 gap-6">
+        <div className="flex items-center h-18 py-3 gap-4">
 
-          {/* Logo — always at the inline-start (right in RTL, left in LTR) */}
-          <a href="#home" className="flex-shrink-0 flex items-center">
-            <img src={glordaIcon} alt="Glorda" className="h-12 w-auto object-contain mix-blend-screen" data-testid="navbar-logo" />
-          </a>
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex flex-1 items-center justify-between">
-            {/* Nav links — flow with direction */}
-            <div className="flex items-center gap-1">
-              {navLinks.map((link) => (
-                <a key={link.href} href={link.href}
-                  className="text-white/80 hover:text-white font-medium text-sm transition-colors duration-200 px-3.5 py-2 rounded-xl hover:bg-white/10">
-                  {link.label}
-                </a>
-              ))}
-            </div>
-
-            {/* Actions — pushed to inline-end */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={toggleLang}
-                className="flex items-center gap-2 text-white/85 hover:text-white text-[11px] font-bold tracking-wider transition-all duration-200 border border-white/25 rounded-xl px-3.5 py-2 hover:bg-white/15 hover:border-white/40 bg-white/5"
-                data-testid="lang-toggle"
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
-                </svg>
-                {language === "ar" ? "EN" : "عربي"}
-              </button>
-              <DownloadButton variant="light" size="sm" isRtl={isRtl} />
-            </div>
+          {/* Group 1: Logo + Lang toggle — always at inline-start (right in RTL, left in LTR) */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <a href="#home" className="flex items-center">
+              <img src={glordaIcon} alt="Glorda" className="h-12 w-auto object-contain mix-blend-screen" data-testid="navbar-logo" />
+            </a>
+            <button
+              onClick={toggleLang}
+              className="hidden md:flex items-center gap-2 text-white/85 hover:text-white text-[11px] font-bold tracking-wider transition-all duration-200 border border-white/25 rounded-xl px-3.5 py-2 hover:bg-white/15 hover:border-white/40 bg-white/5"
+              data-testid="lang-toggle"
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+              </svg>
+              {language === "ar" ? "EN" : "عربي"}
+            </button>
           </div>
 
-          {/* Mobile right-side controls (always at end of flex) */}
-          <div className="flex md:hidden items-center gap-2 ms-auto rtl:ms-0 rtl:me-auto">
+          {/* Nav links — fill middle, flow with direction */}
+          <div className="hidden md:flex flex-1 items-center justify-center gap-1">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href}
+                className="text-white/80 hover:text-white font-medium text-sm transition-colors duration-200 px-3.5 py-2 rounded-xl hover:bg-white/10">
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Download button — at inline-end */}
+          <div className="hidden md:block flex-shrink-0">
+            <DownloadButton variant="light" size="sm" isRtl={isRtl} />
+          </div>
+
+          {/* Mobile: lang toggle + hamburger — pushed to inline-end */}
+          <div className="flex md:hidden items-center gap-2 ms-auto">
             <button
               onClick={toggleLang}
               className="flex items-center gap-1.5 text-white/85 text-[11px] font-bold tracking-wider border border-white/25 rounded-xl px-3 py-1.5 hover:bg-white/15 bg-white/5 transition-all"
+              data-testid="lang-toggle"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10"/>
