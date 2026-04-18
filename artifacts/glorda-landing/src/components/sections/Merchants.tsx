@@ -120,7 +120,7 @@ export function Merchants() {
               ))}
             </div>
 
-            <a href="#"
+            <a href="https://apps.apple.com/sa/app/glorda/id6757753822?l=ar" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-primary text-white rounded-2xl px-8 py-4 font-bold text-base shadow-lg shadow-primary/25 hover:bg-primary/90 hover:-translate-y-0.5 transition-all duration-200"
             >
               {t("join.cta")}
