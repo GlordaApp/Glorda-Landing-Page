@@ -1,5 +1,5 @@
 import { useI18n } from "@/lib/i18n";
-import whiteLogo from "@assets/IMG_7564_1776480165426.webp";
+import glordaIcon from "@assets/glorda_icon_white.webp";
 import {
   FaInstagram,
   FaTiktok,
@@ -72,7 +72,7 @@ export function Footer() {
 
           {/* Col 1 — Brand + description */}
           <div className={`lg:col-span-1 flex flex-col gap-4 ${isRtl ? "items-end" : "items-start"}`}>
-            <img src={whiteLogo} alt="Glorda" className="h-14 w-auto object-contain drop-shadow-sm" />
+            <img src={glordaIcon} alt="Glorda" className="h-14 w-auto object-contain mix-blend-screen" />
             <p className="text-white/45 text-sm leading-relaxed">
               {isRtl
                 ? "تطبيق يوسّع حضور سوق الهدايا والورود بالسعودية، بكل مكان ومع عدة شركاء وآلاف المنتجات."

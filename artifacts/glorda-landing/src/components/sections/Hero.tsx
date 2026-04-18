@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 import screenHome from "@assets/55626544-e2c3-4b50-9fd7-6cf13dad9ecf_1776482044919.webp";
 import { DownloadButton } from "@/components/DownloadButton";
 
-function PhoneMockup() {
+function PhoneMockup({ isRtl }: { isRtl: boolean }) {
+  const badgeOffset = isRtl ? "-right-14" : "-left-14";
+  const cartOffset = isRtl ? "-right-12" : "-left-12";
+
   return (
     <div className="relative w-[260px] h-[520px] mx-auto">
       {/* Glow behind */}
@@ -27,7 +30,7 @@ function PhoneMockup() {
       <motion.div
         animate={{ y: [-5, 5, -5] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="absolute top-8 -left-14 bg-white rounded-2xl px-3 py-2 shadow-xl border border-gray-100 flex items-center gap-2 z-20"
+        className={`absolute top-8 ${badgeOffset} bg-white rounded-2xl px-3 py-2 shadow-xl border border-gray-100 flex items-center gap-2 z-20`}
       >
         <div className="w-7 h-7 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="#A51245"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -42,7 +45,7 @@ function PhoneMockup() {
       <motion.div
         animate={{ y: [5, -5, 5] }}
         transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-24 -left-12 bg-primary rounded-2xl px-3 py-2 shadow-xl flex items-center gap-2 z-20"
+        className={`absolute bottom-24 ${cartOffset} bg-primary rounded-2xl px-3 py-2 shadow-xl flex items-center gap-2 z-20`}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM5.17 5H20l-1.68 8.39c-.16.8-.87 1.61-1.7 1.61H8.33c-.8 0-1.55-.7-1.7-1.5L5.17 5zM3 2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h14v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03L23.7 6H5.21L4.27 2H3z"/></svg>
         <div>
@@ -112,7 +115,7 @@ export function Hero() {
           {/* Phone side */}
           <motion.div initial={{ opacity:0, scale:0.85, y:30 }} animate={{ opacity:1, scale:1, y:0 }} transition={{ duration:0.9, delay:0.3, type:"spring", bounce:0.3 }}
             className="lg:w-1/2 flex justify-center">
-            <PhoneMockup />
+            <PhoneMockup isRtl={isRtl} />
           </motion.div>
 
         </div>

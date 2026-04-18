@@ -1,5 +1,5 @@
 import { useI18n } from "@/lib/i18n";
-import whiteLogo from "@assets/IMG_7564_1776480165426.webp";
+import glordaIcon from "@assets/glorda_icon_white.webp";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -36,7 +36,7 @@ export function Navbar() {
 
           {/* Logo */}
           <a href="#home" className="flex-shrink-0 flex items-center">
-            <img src={whiteLogo} alt="Glorda" className="h-12 w-auto object-contain drop-shadow-sm" data-testid="navbar-logo" />
+            <img src={glordaIcon} alt="Glorda" className="h-12 w-auto object-contain mix-blend-screen" data-testid="navbar-logo" />
           </a>
 
           {/* Desktop Nav */}

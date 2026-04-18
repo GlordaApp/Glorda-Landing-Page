@@ -101,15 +101,15 @@ export function Features() {
             {features.slice(0, 3).map((f, i) => (
               <motion.div key={i} initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: i*0.1 }}
                 className={`group bg-gradient-to-br ${featureIcons[i].gradient} rounded-3xl p-7 border border-gray-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden`}>
-                <div className="absolute top-0 right-0 w-24 h-24 rounded-full opacity-30 blur-2xl" style={{ background: featureIcons[i].accent }} />
-                <div className="w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                <div className={`absolute top-0 w-24 h-24 rounded-full opacity-30 blur-2xl ${isRtl ? "left-0" : "right-0"}`} style={{ background: featureIcons[i].accent }} />
+                <div className={`w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 ${isRtl ? "mr-0" : "ml-0"}`}>
                   {featureIcons[i].svg}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{f.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
-                <div className="absolute bottom-5 right-5 opacity-0 group-hover:opacity-100 transition-opacity">
+                <h3 className={`text-lg font-bold text-gray-900 mb-2 ${isRtl ? "text-right" : "text-left"}`}>{f.title}</h3>
+                <p className={`text-gray-500 text-sm leading-relaxed ${isRtl ? "text-right" : "text-left"}`}>{f.desc}</p>
+                <div className={`absolute bottom-5 opacity-0 group-hover:opacity-100 transition-opacity ${isRtl ? "left-5" : "right-5"}`}>
                   <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: featureIcons[i].accent }}>
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d={isRtl ? "M8 6H4M6 4l2 2-2 2" : "M4 6h4M6 4l2 2-2 2"} stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d={isRtl ? "M8 6H4M6 4l-2 2 2 2" : "M4 6h4M6 4l2 2-2 2"} stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </div>
                 </div>
               </motion.div>
@@ -118,11 +118,11 @@ export function Features() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {features.slice(3).map((f, i) => (
               <motion.div key={i+3} initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: (i+3)*0.1 }}
-                className={`group bg-gradient-to-br ${featureIcons[i+3].gradient} rounded-3xl p-7 border border-gray-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex gap-6 items-start`}>
+                className={`group bg-gradient-to-br ${featureIcons[i+3].gradient} rounded-3xl p-7 border border-gray-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex gap-6 items-start ${isRtl ? "flex-row-reverse" : ""}`}>
                 <div className="w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   {featureIcons[i+3].svg}
                 </div>
-                <div className="flex-1">
+                <div className={`flex-1 ${isRtl ? "text-right" : "text-left"}`}>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{f.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
                 </div>
