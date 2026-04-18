@@ -21,6 +21,7 @@ export function AppFooter() {
         { label: "من نحن",          href: "/about"    },
         { label: "سياسة الخصوصية", href: "/privacy"  },
         { label: "الشروط والأحكام", href: "/terms"    },
+        { label: "الدعم",           href: "/support"  },
       ]
     : [
         { label: "FAQ",                href: "/faq"     },
@@ -28,6 +29,7 @@ export function AppFooter() {
         { label: "About Us",           href: "/about"   },
         { label: "Privacy Policy",     href: "/privacy" },
         { label: "Terms & Conditions", href: "/terms"   },
+        { label: "Support",            href: "/support" },
       ];
 
   return (
