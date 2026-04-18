@@ -17,18 +17,16 @@ export function AppFooter() {
   const links = isRtl
     ? [
         { label: "الأسئلة الشائعة", href: "/faq"     },
-        { label: "تواصل معنا",      href: "/#contact" },
-        { label: "من نحن",          href: "/about"    },
-        { label: "سياسة الخصوصية", href: "/privacy"  },
         { label: "الشروط والأحكام", href: "/terms"    },
+        { label: "سياسة الخصوصية", href: "/privacy"  },
+        { label: "من نحن",          href: "/about"    },
         { label: "الدعم",           href: "/support"  },
       ]
     : [
         { label: "FAQ",                href: "/faq"     },
-        { label: "Contact Us",         href: "/#contact"},
-        { label: "About Us",           href: "/about"   },
-        { label: "Privacy Policy",     href: "/privacy" },
         { label: "Terms & Conditions", href: "/terms"   },
+        { label: "Privacy Policy",     href: "/privacy" },
+        { label: "About Us",           href: "/about"   },
         { label: "Support",            href: "/support" },
       ];
 
