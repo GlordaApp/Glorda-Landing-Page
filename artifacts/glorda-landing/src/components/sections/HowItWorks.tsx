@@ -2,12 +2,12 @@ import { useI18n } from "@/lib/i18n";
 import { motion } from "framer-motion";
 
 const stepIcons = [
-  // Choose category
+  // Set location
   <svg key="s1" width="24" height="24" viewBox="0 0 48 48" fill="none">
-    <rect x="6" y="6" width="16" height="16" rx="4" fill="white" opacity="0.9"/>
-    <rect x="26" y="6" width="16" height="16" rx="4" fill="white" opacity="0.6"/>
-    <rect x="6" y="26" width="16" height="16" rx="4" fill="white" opacity="0.6"/>
-    <rect x="26" y="26" width="16" height="16" rx="4" fill="white" opacity="0.9"/>
+    <path d="M24 4C16.27 4 10 10.27 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.73-6.27-14-14-14z" fill="white" opacity="0.3"/>
+    <path d="M24 6C17.37 6 12 11.37 12 18c0 9.5 12 24 12 24s12-14.5 12-24c0-6.63-5.37-12-12-12z" fill="white" opacity="0.7"/>
+    <circle cx="24" cy="18" r="5" fill="white"/>
+    <circle cx="24" cy="18" r="2.5" fill="#A51245"/>
   </svg>,
   // Browse stores
   <svg key="s2" width="24" height="24" viewBox="0 0 48 48" fill="none">

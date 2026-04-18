@@ -112,7 +112,7 @@ export function Hero() {
             <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5, delay:0.1 }}
               className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6 text-sm font-medium backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-              {isRtl ? "الوجهة الأولى للهدايا في السعودية" : "Saudi Arabia's #1 Gift Marketplace"}
+              {t("hero.badge")}
             </motion.div>
 
             <motion.h1 initial={{ opacity:0, y:30 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.7, delay:0.2 }}

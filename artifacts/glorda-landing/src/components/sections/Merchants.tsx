@@ -1,100 +1,136 @@
 import { useI18n } from "@/lib/i18n";
 import { motion } from "framer-motion";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-const storeCategories = [
-  {
-    ar: "متاجر الورود",
-    en: "Flower Stores",
-    desc_ar: "باقات وتنسيقات من أرقى المحلات",
-    desc_en: "Bouquets & arrangements from the finest shops",
-    iconPath: "M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67C14.5 20.88 13.38 22 12 22zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5 0-.16-.08-.28-.14-.35-.41-.47-.63-1.06-.63-1.65 0-1.38 1.12-2.5 2.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 10 6.5 10s1.5.67 1.5 1.5S7.33 13 6.5 13zm3-4C8.67 9 8 8.33 8 7.5S8.67 6 9.5 6s1.5.67 1.5 1.5S10.33 9 9.5 9zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 6 14.5 6s1.5.67 1.5 1.5S15.33 9 14.5 9zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 10 17.5 10s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z",
-    bg: "bg-rose-50",
-    iconColor: "#A51245",
-  },
-  {
-    ar: "متاجر الكيك",
-    en: "Cake Stores",
-    desc_ar: "كيك مخصص لكل مناسبة",
-    desc_en: "Custom cakes for every occasion",
-    iconPath: "M18.5 3H6c-1.1 0-2 .9-2 2v5.71c-1.17.49-2 1.63-2 2.79V19c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-5.5c0-1.16-.83-2.3-2-2.79V5c0-1.1-.9-2-1.5-2zM19 19H5v-5.5c0-.28.22-.5.5-.5s.5.22.5.5V15h2v-1.5c0-.28.22-.5.5-.5s.5.22.5.5V15h2v-1.5c0-.28.22-.5.5-.5s.5.22.5.5V15h2v-1.5c0-.28.22-.5.5-.5s.5.22.5.5V15h2v-1.5c0-.28.22-.5.5-.5s.5.22.5.5V19zM17 10H7V5h10v5z",
-    bg: "bg-amber-50",
-    iconColor: "#C8963E",
-  },
-  {
-    ar: "متاجر الهدايا",
-    en: "Gift Stores",
-    desc_ar: "هدايا فاخرة لكل مناسبة",
-    desc_en: "Luxury gifts for every occasion",
-    iconPath: "M20 6h-2.18c.07-.43.18-.86.18-1 0-2.21-1.79-4-4-4-1.05 0-1.96.42-2.66 1.1L10 3.44l-1.34-1.34C7.96 1.42 7.05 1 6 1 3.79 1 2 2.79 2 5c0 .14.11.57.18 1H0v2h20V6zM6 3c1.1 0 2 .9 2 2H4c0-1.1.9-2 2-2zm6 0c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zM2 19c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-9H2v9zm9-8h2v6h-2v-6zM7 11h2v6H7v-6zm8 0h2v6h-2v-6z",
-    bg: "bg-violet-50",
-    iconColor: "#6B3FA0",
-  },
-  {
-    ar: "متاجر الحلويات",
-    en: "Sweet Stores",
-    desc_ar: "حلويات شرقية وغربية متنوعة",
-    desc_en: "Eastern & Western sweets variety",
-    iconPath: "M18 12h-1.55l-.95-4.75A2.007 2.007 0 0013.55 5.5H10.5L9.75 3H7v2h1.25l2 8H18v-1zm.5 4c-.83 0-1.5.67-1.5 1.5S17.67 19 18.5 19s1.5-.67 1.5-1.5S19.33 16 18.5 16zm-9 0c-.83 0-1.5.67-1.5 1.5S8.67 19 9.5 19s1.5-.67 1.5-1.5S10.33 16 9.5 16zM4 7h2v2H4V7zm0 4h2v2H4v-2zm0 4h2v2H4v-2zm0-8h2V5H4v2z",
-    bg: "bg-emerald-50",
-    iconColor: "#059669",
-  },
+const joinFeatureIcons = [
+  "M19 3H5c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h14c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z",
+  "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
+  "M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z",
+  "M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z",
 ];
 
 export function Merchants() {
   const { t, isRtl } = useI18n();
 
+  const features = [
+    t("join.feature.1"),
+    t("join.feature.2"),
+    t("join.feature.3"),
+    t("join.feature.4"),
+  ];
+
   return (
-    <section id="merchants" className="py-20 bg-[#FDF8F5]">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section id="merchants" className="py-24 bg-white overflow-hidden relative">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#FDF8F5] to-transparent" />
+      </div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-center mb-12">
-          <span className="text-primary text-sm font-bold tracking-widest uppercase">
-            {isRtl ? "اكتشف المتاجر" : "Discover Stores"}
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-4">
-            {t("merchants.customer.title")}
-          </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed">
-            {t("merchants.customer.desc")}
-          </p>
-        </motion.div>
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className={`flex flex-col lg:flex-row items-center gap-14 ${isRtl ? "lg:flex-row-reverse" : ""}`}>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          {storeCategories.map((cat, i) => (
-            <motion.div key={i}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center gap-3"
-            >
-              <div className={`w-14 h-14 rounded-2xl ${cat.bg} flex items-center justify-center`}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill={cat.iconColor}>
-                  <path d={cat.iconPath} />
-                </svg>
-              </div>
-              <div>
-                <div className="font-bold text-gray-900 text-base">
-                  {isRtl ? cat.ar : cat.en}
+          {/* Left: visual */}
+          <motion.div
+            initial={{ opacity: 0, x: isRtl ? 40 : -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="lg:w-5/12 w-full"
+          >
+            <div className="relative">
+              <div className="absolute inset-6 bg-primary/10 rounded-3xl blur-3xl" />
+              <div className="relative bg-gradient-to-br from-primary to-[#7a0d35] rounded-3xl p-8 text-white overflow-hidden shadow-2xl shadow-primary/30">
+                {/* Decorative circles */}
+                <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-white/5 -translate-y-1/3 translate-x-1/3" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full bg-secondary/10 translate-y-1/3 -translate-x-1/3" />
+
+                <div className="relative space-y-5">
+                  {/* Header */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm-7 11h-2V9h2v6zm0-8h-2V5h2v2z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="h-2.5 w-24 bg-white/60 rounded" />
+                      <div className="h-2 w-16 bg-white/30 rounded mt-1" />
+                    </div>
+                  </div>
+
+                  {/* Stats */}
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { v: "500+", l: isRtl ? "متجر مسجّل" : "Registered Stores" },
+                      { v: "50K+", l: isRtl ? "عميل نشط" : "Active Customers" },
+                      { v: isRtl ? "مجاني" : "Free", l: isRtl ? "الانضمام" : "To Join" },
+                      { v: "24/7", l: isRtl ? "دعم فني" : "Support" },
+                    ].map((s, i) => (
+                      <div key={i} className="bg-white/10 rounded-2xl p-3 text-center border border-white/10">
+                        <div className="text-lg font-extrabold text-white">{s.v}</div>
+                        <div className="text-xs text-white/60 mt-0.5">{s.l}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Fake chart bars */}
+                  <div className="bg-white/10 rounded-2xl p-4 border border-white/10">
+                    <div className={`text-xs text-white/60 mb-3 ${isRtl ? "text-right" : ""}`}>{isRtl ? "نمو المبيعات" : "Sales Growth"}</div>
+                    <div className="flex items-end gap-1.5 h-14">
+                      {[35, 55, 42, 70, 58, 82, 65, 90, 75, 100].map((h, i) => (
+                        <div key={i} className="flex-1 rounded-sm bg-white/30 hover:bg-secondary/80 transition-colors"
+                          style={{ height: `${h}%` }} />
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <div className="text-gray-400 text-sm mt-1 leading-snug">
-                  {isRtl ? cat.desc_ar : cat.desc_en}
-                </div>
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
+
+          {/* Right: text */}
+          <motion.div
+            initial={{ opacity: 0, x: isRtl ? -40 : 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className={`lg:w-7/12 ${isRtl ? "text-right" : "text-left"}`}
+          >
+            <span className="inline-block bg-secondary/15 text-secondary text-sm font-bold px-4 py-1.5 rounded-full mb-5">
+              {t("join.badge")}
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+              {t("join.title")}
+            </h2>
+            <p className="text-gray-500 text-lg leading-relaxed mb-8 max-w-lg">
+              {t("join.desc")}
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              {features.map((f, i) => (
+                <motion.div key={i}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className={`flex items-center gap-3 bg-[#FDF8F5] rounded-2xl px-4 py-3 border border-gray-100 ${isRtl ? "flex-row-reverse" : ""}`}
+                >
+                  <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#A51245">
+                      <path d={joinFeatureIcons[i]} />
+                    </svg>
+                  </div>
+                  <span className="text-gray-700 font-medium text-sm">{f}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            <a href="#" className={`inline-flex items-center gap-3 bg-primary text-white rounded-2xl px-8 py-4 font-bold text-base shadow-lg shadow-primary/25 hover:bg-primary/90 hover:-translate-y-0.5 transition-all duration-200 ${isRtl ? "flex-row-reverse" : ""}`}>
+              {t("join.cta")}
+              {isRtl ? <FaArrowLeft className="text-sm" /> : <FaArrowRight className="text-sm" />}
+            </a>
+          </motion.div>
+
         </div>
-
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-          className="mt-10 text-center">
-          <p className="text-gray-400 text-sm">
-            {isRtl
-              ? "أكثر من ٥٠٠ متجر متخصص في انتظارك داخل التطبيق"
-              : "Over 500 specialized stores waiting for you inside the app"}
-          </p>
-        </motion.div>
-
       </div>
     </section>
   );
