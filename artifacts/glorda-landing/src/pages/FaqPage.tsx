@@ -7,118 +7,118 @@ import { motion, AnimatePresence } from "framer-motion";
 const customersAr = [
   {
     q: "كيف يمكنني طلب بوكيه ورد أو هدية عبر Glorda؟",
-    a: "حمّل التطبيق، اختر موقعك أو عنوان التوصيل، ثم تصفّح المتاجر القريبة واختر المنتج الذي يناسبك وأكمل الطلب.",
+    a: "يمكنك تصفح المنتجات عبر الموقع أو التطبيق، اختيار الباقة المناسبة، ثم إتمام الطلب بخطوات بسيطة.",
   },
   {
     q: "ما هي طرق الدفع المتاحة؟",
-    a: "يدعم التطبيق عدة طرق دفع إلكترونية آمنة تشمل البطاقات الائتمانية، Apple Pay، mada، وغيرها.",
+    a: "نوفر مدى، فيزا، ماستركارد، Apple Pay، STC Pay بالإضافة إلى خدمات الدفع بالتقسيط مثل تابي.",
   },
   {
     q: "هل يمكنني استلام الطلب من المحل مباشرة؟",
-    a: "نعم، يمكنك اختيار خيار الاستلام من المتجر عند إتمام طلبك إذا أتاحه المتجر.",
+    a: "نعم، يمكنك اختيار الاستلام بنفسك من المحل.",
   },
   {
     q: "هل يمكنني استلام الطلب عبر خدمة المتجر؟",
-    a: "نعم، يوفر كثير من المتاجر خدمة التوصيل المباشر. تظهر الخيارات المتاحة عند اختيار المتجر.",
+    a: "نعم، يمكنك استخدام خدمة التسليم الخاصة بالمتجر.",
   },
   {
     q: "هل يمكنني تحديد وقت معين للاستلام؟",
-    a: "يتيح بعض المتاجر تحديد وقت مفضّل للاستلام أو التوصيل. يمكنك الاطلاع على الخيارات المتاحة أثناء إتمام الطلب.",
+    a: "نعم، يمكنك اختيار الوقت المناسب أثناء إتمام الطلب.",
   },
   {
     q: "هل يمكنني إرسال هدية لشخص في مدينة أخرى؟",
-    a: "نعم، ما عليك إلا إدخال عنوان المُهدى إليه وسيعرض التطبيق المتاجر القريبة منه.",
+    a: "نعم، يمكنك اختيار المدينة والمتجر المتاح فيها، وسيتم تجهيز الطلب من هناك.",
   },
   {
     q: "هل يمكنني متابعة حالة الطلب؟",
-    a: "نعم، يمكنك متابعة حالة طلبك لحظةً بلحظة من خلال قسم \"طلباتي\" داخل التطبيق.",
+    a: "نعم، ستصلك إشعارات عبر التطبيق.",
   },
   {
     q: "هل يمكنني تخصيص البوكيه أو الهدية؟",
-    a: "يتيح بعض المتاجر إضافة ملاحظات أو طلبات خاصة عند الطلب. يرجى مراجعة خيارات المتجر المختار.",
+    a: "نعم، يمكنك إضافة بطاقة معايدة أو اختيار تصميم خاص حسب المناسبة.",
   },
   {
     q: "هل تتوفر منتجات موسمية أو عروض خاصة؟",
-    a: "نعم، يعرض التطبيق العروض الموسمية والمناسبات الخاصة بشكل بارز على الصفحة الرئيسية.",
+    a: "نعم، نقدم باقات مميزة في المناسبات مثل الأعياد، اليوم الوطني، ويوم الأم، عيد الحب وغيرها من المناسبات.",
   },
   {
     q: "هل المنتجات معروضة بأسعار شاملة؟",
-    a: "نعم، الأسعار المعروضة شاملة لجميع الرسوم المتعلقة بالمنتج، وقد تُضاف رسوم توصيل حسب المتجر.",
+    a: "نعم، الأسعار تشمل جميع الرسوم ما لم يُذكر غير ذلك.",
   },
   {
     q: "هل هناك منتجات حصرية في Glorda؟",
-    a: "نعم، يوفر بعض المتاجر منتجات وتصاميم حصرية لا تجدها إلا عبر Glorda.",
+    a: "نعم، بعض الباقات متوفرة حصريًا عبر التطبيق.",
   },
   {
     q: "هل خدمة العملاء متاحة على مدار الساعة؟",
-    a: "فريق الدعم متاح خلال ساعات العمل. يمكنك التواصل معنا عبر البريد الإلكتروني أو واتساب في أي وقت وسيُردّ عليك في أقرب فرصة.",
+    a: "نعم، نوفر دعمًا على مدار 24/7.",
   },
   {
     q: "هل يمكنني التواصل مع المتجر مباشرة داخل التطبيق؟",
-    a: "نعم، يتيح التطبيق التواصل مع المتجر مباشرة لأي استفسار قبل أو بعد تقديم الطلب.",
+    a: "نعم، يمكنك استخدام خاصية الرسائل داخل التطبيق للتواصل مع المتجر بشكل مباشر، سواء للاستفسار عن المنتجات أو لتوضيح أي تفاصيل خاصة بالطلب.",
   },
   {
     q: "هل يمكنني جدولة الطلب لموعد لاحق؟",
-    a: "يدعم بعض المتاجر جدولة الطلبات المسبقة. تحقق من خيارات المتجر أثناء إتمام طلبك.",
+    a: "نعم، يمكنك تحديد موعد التوصيل عند إتمام الطلب لتصل الورود أو الهدايا أو الكيك أو الشوكولاتة في الوقت المحدد.",
   },
 ];
 
 const partnersAr = [
   {
-    q: "هل إنشاء متجر في غلوردا مجاني؟",
-    a: "نعم، التسجيل وإنشاء المتجر مجاني تماماً. تواصل معنا لمعرفة تفاصيل الشراكة.",
-  },
-  {
     q: "كيف أسجل كتاجر في Glorda؟",
-    a: "تواصل مع فريقنا عبر البريد الإلكتروني أو واتساب وسيرشدك أحد ممثلينا خلال خطوات التسجيل.",
-  },
-  {
-    q: "هل يمكنني إدارة المنتجات وتعديلها؟",
-    a: "نعم، يتيح النظام للتجار إضافة المنتجات وتعديل الأسعار والتوفر بسهولة من لوحة التحكم.",
-  },
-  {
-    q: "هل يمكنني تحديد أوقات الاستلام أو التسليم للطلبات؟",
-    a: "نعم، يمكنك ضبط أوقات عمل المتجر وخيارات التوصيل أو الاستلام المتاحة بمرونة كاملة.",
+    a: "يمكنك التسجيل عبر صفحة \"انضم كشريك\" في التطبيق وأدخل بيانات المتجر، وسيتم مراجعتها خلال وقت قصير ويتم قبولك.",
   },
   {
     q: "كيف أستلم أرباحي؟",
-    a: "تُحوَّل الأرباح إلى حسابك البنكي المسجّل وفق دورة دفع منتظمة يتم الاتفاق عليها عند التعاقد.",
-  },
-  {
-    q: "هل يمكنني التواصل مع العملاء داخل التطبيق؟",
-    a: "نعم، يوفر التطبيق قناة تواصل مباشر بين المتجر والعميل لإتمام أي تنسيق قبل التوصيل.",
+    a: "يتم تحويل الأرباح إلى حسابك البنكي بشكل دوري، ويمكنك تتبع التفاصيل من خلال لوحة التاجر.",
   },
   {
     q: "هل هناك دعم فني للتجار؟",
-    a: "نعم، يوفر فريق غلوردا دعماً فنياً متخصصاً للتجار للمساعدة في أي مشكلة تقنية أو استفسار.",
+    a: "نعم، نوفر دعمًا متواصلًا عبر الواتساب أو البريد الإلكتروني.",
+  },
+  {
+    q: "هل يمكنني إدارة المنتجات وتعديلها؟",
+    a: "نعم، يمكنك إضافة أو تعديل المنتجات والصور والأسعار بكل سهولة من خلال لوحة التاجر.",
+  },
+  {
+    q: "هل يمكنني التواصل مع العملاء داخل التطبيق؟",
+    a: "نعم، يمكنك الرد على استفسارات العملاء عبر الرسائل المخصصة داخل التطبيق.",
+  },
+  {
+    q: "هل يمكنني تحديد أوقات الاستلام أو التسليم للطلبات؟",
+    a: "نعم، يمكنك ضبط الأوقات المتاحة حسب ساعات عمل متجرك، لتناسب جدولك التشغيلي.",
+  },
+  {
+    q: "هل إنشاء متجر في غلوردا مجاني؟",
+    a: "نعم، فتح متجر وعرض منتجاتك بالكامل مجاني.",
   },
 ];
 
 const customersEn = [
-  { q: "How can I order flowers or a gift through Glorda?", a: "Download the app, choose your location or delivery address, browse nearby stores, select the product you like, and complete your order." },
-  { q: "What payment methods are available?", a: "The app supports multiple secure payment methods including credit cards, Apple Pay, mada, and more." },
-  { q: "Can I pick up my order directly from the store?", a: "Yes, you can choose the in-store pickup option when completing your order if the store offers it." },
-  { q: "Can I receive delivery through the store's delivery service?", a: "Yes, many stores offer direct delivery. Available options appear when you select a store." },
-  { q: "Can I schedule a specific pickup or delivery time?", a: "Some stores allow you to choose a preferred time. Available options are shown during checkout." },
-  { q: "Can I send a gift to someone in another city?", a: "Yes, simply enter the recipient's address and the app will show stores near them." },
-  { q: "Can I track my order status?", a: "Yes, you can track your order in real-time from the 'My Orders' section in the app." },
-  { q: "Can I customise the bouquet or gift?", a: "Some stores allow special notes or requests during checkout. Check the selected store's options." },
-  { q: "Are there seasonal products or special offers?", a: "Yes, the app prominently features seasonal offers and special occasions on the home screen." },
-  { q: "Are prices shown inclusive of all fees?", a: "Yes, displayed prices are all-inclusive for the product. Delivery fees may apply depending on the store." },
-  { q: "Are there exclusive products on Glorda?", a: "Yes, some stores offer exclusive designs and products only available through Glorda." },
-  { q: "Is customer support available 24/7?", a: "Our support team is available during business hours. You can reach us via email or WhatsApp anytime and we will respond as soon as possible." },
-  { q: "Can I contact the store directly inside the app?", a: "Yes, the app provides a direct communication channel between the customer and the store." },
-  { q: "Can I schedule an order for a later date?", a: "Some stores support advance scheduling. Check the store options during checkout." },
+  { q: "How can I order flowers or a gift through Glorda?", a: "Browse products via the website or app, choose the right package, then complete the order in a few simple steps." },
+  { q: "What payment methods are available?", a: "We support mada, Visa, Mastercard, Apple Pay, STC Pay, as well as instalment services such as Tabby." },
+  { q: "Can I pick up my order directly from the store?", a: "Yes, you can choose to collect your order in person from the store." },
+  { q: "Can I receive delivery through the store's delivery service?", a: "Yes, you can use the store's own delivery service." },
+  { q: "Can I choose a specific pickup or delivery time?", a: "Yes, you can select the time that suits you when completing your order." },
+  { q: "Can I send a gift to someone in another city?", a: "Yes, you can choose the city and an available store there, and the order will be prepared from that location." },
+  { q: "Can I track my order status?", a: "Yes, you will receive notifications through the app." },
+  { q: "Can I customise the bouquet or gift?", a: "Yes, you can add a greeting card or choose a special design for the occasion." },
+  { q: "Are there seasonal products or special offers?", a: "Yes, we offer special packages for occasions such as Eid, National Day, Mother's Day, Valentine's Day, and more." },
+  { q: "Are prices shown inclusive of all fees?", a: "Yes, prices include all fees unless stated otherwise." },
+  { q: "Are there exclusive products on Glorda?", a: "Yes, some packages are available exclusively through the app." },
+  { q: "Is customer support available 24/7?", a: "Yes, we provide support around the clock, 24/7." },
+  { q: "Can I contact the store directly inside the app?", a: "Yes, you can use the messaging feature inside the app to communicate directly with the store, whether to enquire about products or clarify any details related to your order." },
+  { q: "Can I schedule an order for a later date?", a: "Yes, you can set a delivery time when completing your order so that flowers, gifts, cakes or chocolates arrive at the specified time." },
 ];
 
 const partnersEn = [
-  { q: "Is creating a store on Glorda free?", a: "Yes, registration and store creation are completely free. Contact us to learn about partnership details." },
-  { q: "How do I register as a merchant on Glorda?", a: "Contact our team via email or WhatsApp and one of our representatives will guide you through the registration steps." },
-  { q: "Can I manage and edit my products?", a: "Yes, merchants can add products, update prices, and manage availability easily from the dashboard." },
-  { q: "Can I set pickup or delivery times for orders?", a: "Yes, you can configure your store's working hours and delivery/pickup options with full flexibility." },
-  { q: "How do I receive my earnings?", a: "Earnings are transferred to your registered bank account on a regular payment cycle agreed upon at contract." },
-  { q: "Can I communicate with customers inside the app?", a: "Yes, the app provides a direct communication channel between the store and customer for any coordination." },
-  { q: "Is there technical support for merchants?", a: "Yes, the Glorda team provides dedicated technical support to merchants for any technical issue or inquiry." },
+  { q: "How do I register as a merchant on Glorda?", a: "You can register via the 'Join as Partner' page in the app, enter your store details, and they will be reviewed within a short time before approval." },
+  { q: "How do I receive my earnings?", a: "Earnings are transferred to your bank account on a regular basis, and you can track the details through the merchant dashboard." },
+  { q: "Is there technical support for merchants?", a: "Yes, we provide continuous support via WhatsApp or email." },
+  { q: "Can I manage and edit my products?", a: "Yes, you can add or edit products, images, and prices easily through the merchant dashboard." },
+  { q: "Can I communicate with customers inside the app?", a: "Yes, you can respond to customer enquiries via the dedicated messaging feature inside the app." },
+  { q: "Can I set pickup or delivery times for orders?", a: "Yes, you can configure available times according to your store's working hours to suit your operational schedule." },
+  { q: "Is creating a store on Glorda free?", a: "Yes, opening a store and listing all your products is completely free." },
 ];
 
 function AccordionItem({ q, a }: { q: string; a: string }) {
