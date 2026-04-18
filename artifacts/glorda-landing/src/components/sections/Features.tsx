@@ -12,8 +12,7 @@ const featureIcons = [
         <circle cx="24" cy="20" r="3" fill="white"/>
       </svg>
     ),
-    gradient: "from-rose-50 to-red-50",
-    accent: "#A51245",
+    gradient: "from-rose-50 to-red-50", accent: "#A51245",
   },
   {
     svg: (
@@ -26,8 +25,7 @@ const featureIcons = [
         <path d="M33 30l1.5 1.5L37 28" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
-    gradient: "from-amber-50 to-yellow-50",
-    accent: "#C8963E",
+    gradient: "from-amber-50 to-yellow-50", accent: "#C8963E",
   },
   {
     svg: (
@@ -37,8 +35,7 @@ const featureIcons = [
         <path d="M24 12L26.5 19H34L28 23.5L30.5 31L24 26.5L17.5 31L20 23.5L14 19H21.5L24 12Z" fill="#A51245"/>
       </svg>
     ),
-    gradient: "from-pink-50 to-rose-50",
-    accent: "#A51245",
+    gradient: "from-pink-50 to-rose-50", accent: "#A51245",
   },
   {
     svg: (
@@ -52,8 +49,7 @@ const featureIcons = [
         <path d="M20 20L28 28" stroke="#C8963E" strokeWidth="2" strokeLinecap="round"/>
       </svg>
     ),
-    gradient: "from-violet-50 to-purple-50",
-    accent: "#6B3FA0",
+    gradient: "from-violet-50 to-purple-50", accent: "#6B3FA0",
   },
   {
     svg: (
@@ -67,8 +63,7 @@ const featureIcons = [
         <path d="M22 24l1.5 1.5L26 22" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
-    gradient: "from-emerald-50 to-green-50",
-    accent: "#2A7D4F",
+    gradient: "from-emerald-50 to-green-50", accent: "#2A7D4F",
   },
 ];
 
@@ -95,34 +90,39 @@ export function Features() {
           <div className="w-12 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
 
-        {/* 3-2 grid layout */}
         <div className="space-y-6">
+          {/* Top 3 cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.slice(0, 3).map((f, i) => (
               <motion.div key={i} initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: i*0.1 }}
                 className={`group bg-gradient-to-br ${featureIcons[i].gradient} rounded-3xl p-7 border border-gray-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden`}>
-                <div className={`absolute top-0 w-24 h-24 rounded-full opacity-30 blur-2xl ${isRtl ? "left-0" : "right-0"}`} style={{ background: featureIcons[i].accent }} />
-                <div className={`w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 ${isRtl ? "mr-0" : "ml-0"}`}>
+                <div className="absolute top-0 end-0 w-24 h-24 rounded-full opacity-30 blur-2xl" style={{ background: featureIcons[i].accent }} />
+                <div className="w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
                   {featureIcons[i].svg}
                 </div>
-                <h3 className={`text-lg font-bold text-gray-900 mb-2 ${isRtl ? "text-right" : "text-left"}`}>{f.title}</h3>
-                <p className={`text-gray-500 text-sm leading-relaxed ${isRtl ? "text-right" : "text-left"}`}>{f.desc}</p>
-                <div className={`absolute bottom-5 opacity-0 group-hover:opacity-100 transition-opacity ${isRtl ? "left-5" : "right-5"}`}>
+                <h3 className="text-lg font-bold text-gray-900 mb-2 text-start">{f.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed text-start">{f.desc}</p>
+                <div className="absolute bottom-5 end-5 opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: featureIcons[i].accent }}>
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d={isRtl ? "M8 6H4M6 4l-2 2 2 2" : "M4 6h4M6 4l2 2-2 2"} stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M4 6h4M6 4l2 2-2 2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                        style={{ transform: isRtl ? "scaleX(-1)" : "none", transformOrigin: "center" }}/>
+                    </svg>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Bottom 2 wide cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {features.slice(3).map((f, i) => (
               <motion.div key={i+3} initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: (i+3)*0.1 }}
-                className={`group bg-gradient-to-br ${featureIcons[i+3].gradient} rounded-3xl p-7 border border-gray-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex gap-6 items-start ${isRtl ? "flex-row-reverse" : ""}`}>
+                className={`group bg-gradient-to-br ${featureIcons[i+3].gradient} rounded-3xl p-7 border border-gray-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex gap-6 items-start`}>
                 <div className="w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   {featureIcons[i+3].svg}
                 </div>
-                <div className={`flex-1 ${isRtl ? "text-right" : "text-left"}`}>
+                <div className="flex-1 text-start">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{f.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
                 </div>

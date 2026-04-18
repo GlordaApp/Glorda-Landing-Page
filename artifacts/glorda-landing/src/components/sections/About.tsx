@@ -11,11 +11,8 @@ const categories = [
         <circle cx="24" cy="14" r="3" fill="white" opacity="0.8"/>
       </svg>
     ),
-    color: "from-rose-50 to-pink-100",
-    border: "border-rose-200",
-    iconBg: "bg-rose-100",
-    labelAr: "الورود",
-    labelEn: "Flowers",
+    color: "from-rose-50 to-pink-100", border: "border-rose-200", iconBg: "bg-rose-100",
+    labelAr: "الورود", labelEn: "Flowers",
   },
   {
     icon: (
@@ -29,11 +26,8 @@ const categories = [
         <rect x="14" y="18" width="20" height="2" rx="1" fill="white" opacity="0.5"/>
       </svg>
     ),
-    color: "from-amber-50 to-yellow-100",
-    border: "border-amber-200",
-    iconBg: "bg-amber-100",
-    labelAr: "الكيك",
-    labelEn: "Cakes",
+    color: "from-amber-50 to-yellow-100", border: "border-amber-200", iconBg: "bg-amber-100",
+    labelAr: "الكيك", labelEn: "Cakes",
   },
   {
     icon: (
@@ -47,11 +41,8 @@ const categories = [
         <path d="M20 10c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="#C8963E" strokeWidth="2" fill="none"/>
       </svg>
     ),
-    color: "from-purple-50 to-violet-100",
-    border: "border-purple-200",
-    iconBg: "bg-purple-100",
-    labelAr: "الهدايا",
-    labelEn: "Gifts",
+    color: "from-purple-50 to-violet-100", border: "border-purple-200", iconBg: "bg-purple-100",
+    labelAr: "الهدايا", labelEn: "Gifts",
   },
   {
     icon: (
@@ -62,20 +53,14 @@ const categories = [
         <circle cx="21" cy="20" r="2" fill="white" opacity="0.5"/>
       </svg>
     ),
-    color: "from-red-50 to-rose-100",
-    border: "border-red-200",
-    iconBg: "bg-red-100",
-    labelAr: "الحلويات",
-    labelEn: "Sweets",
+    color: "from-red-50 to-rose-100", border: "border-red-200", iconBg: "bg-red-100",
+    labelAr: "الحلويات", labelEn: "Sweets",
   },
 ];
 
 const featureKeys = [
-  "about.feature.1",
-  "about.feature.2",
-  "about.feature.3",
-  "about.feature.4",
-  "about.feature.5",
+  "about.feature.1", "about.feature.2", "about.feature.3",
+  "about.feature.4", "about.feature.5",
 ];
 
 export function About() {
@@ -84,7 +69,8 @@ export function About() {
   return (
     <section id="about" className="py-24 bg-[#FDF8F5]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
+
+        {/* Header — always centered */}
         <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ duration:0.6 }}
           className="text-center mb-16">
           <span className="text-primary text-sm font-bold tracking-widest uppercase">{isRtl ? "عن التطبيق" : "About"}</span>
@@ -106,23 +92,25 @@ export function About() {
           ))}
         </div>
 
-        {/* About detail */}
-        <div className={`flex flex-col lg:flex-row items-center gap-12 ${isRtl ? "lg:flex-row-reverse" : ""}`}>
-          <motion.div initial={{ opacity:0, x: isRtl ? 30 : -30 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.6 }}
+        {/* Two-column detail — direction-aware flex */}
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+
+          {/* Feature list — inline-start */}
+          <motion.div initial={{ opacity:0, x: -30 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.6 }}
             className="lg:w-1/2">
             <div className="bg-white rounded-3xl p-8 shadow-md border border-gray-100 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-bl-full" />
-              <div className="absolute bottom-0 left-0 w-28 h-28 bg-secondary/5 rounded-tr-full" />
+              <div className="absolute top-0 end-0 w-40 h-40 bg-primary/5 rounded-bl-full" />
+              <div className="absolute bottom-0 start-0 w-28 h-28 bg-secondary/5 rounded-tr-full" />
               <div className="relative">
-                <h3 className="text-2xl font-extrabold text-gray-900 mb-6">{isRtl ? "لماذا غلوردا؟" : "Why Glorda?"}</h3>
+                <h3 className="text-2xl font-extrabold text-gray-900 mb-6 text-start">{isRtl ? "لماذا غلوردا؟" : "Why Glorda?"}</h3>
                 <ul className="space-y-4">
                   {featureKeys.map((key, i) => (
-                    <motion.li key={i} initial={{ opacity:0, x: isRtl ? 10 : -10 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ delay: i*0.08 }}
-                      className={`flex items-center gap-3 ${isRtl ? "flex-row-reverse" : ""}`}>
+                    <motion.li key={i} initial={{ opacity:0, x: -10 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ delay: i*0.08 }}
+                      className="flex items-center gap-3">
                       <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-sm">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
                       </div>
-                      <span className="text-gray-700 font-medium">{t(key)}</span>
+                      <span className="text-gray-700 font-medium text-start">{t(key)}</span>
                     </motion.li>
                   ))}
                 </ul>
@@ -130,42 +118,47 @@ export function About() {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity:0, x: isRtl ? -30 : 30 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.6, delay:0.15 }}
+          {/* Info cards — inline-end */}
+          <motion.div initial={{ opacity:0, x: 30 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.6, delay:0.15 }}
             className="lg:w-1/2">
             <div className="space-y-5">
+
               <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
-                <div className={`flex items-start gap-4 ${isRtl ? "flex-row-reverse" : ""}`}>
+                <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="#A51245"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                   </div>
-                  <div className={isRtl ? "text-right" : ""}>
+                  <div className="text-start">
                     <h4 className="font-bold text-gray-900 mb-1">{isRtl ? "قريب منك دائماً" : "Always Near You"}</h4>
                     <p className="text-gray-500 text-sm leading-relaxed">{isRtl ? "يعرض لك التطبيق المتاجر القريبة من موقعك أو من أي عنوان تسليم تختاره" : "Shows you stores near your location or any delivery address you choose"}</p>
                   </div>
                 </div>
               </div>
+
               <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
-                <div className={`flex items-start gap-4 ${isRtl ? "flex-row-reverse" : ""}`}>
+                <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="#C8963E"><path d="M20 6h-2.18c.07-.43.18-.86.18-1 0-2.21-1.79-4-4-4-1.05 0-1.96.42-2.66 1.1L10 3.44l-1.34-1.34C7.96 1.42 7.05 1 6 1 3.79 1 2 2.79 2 5c0 .14.11.57.18 1H0v2h20V6zM3 8v11c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8H3zm9 9l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
                   </div>
-                  <div className={isRtl ? "text-right" : ""}>
+                  <div className="text-start">
                     <h4 className="font-bold text-gray-900 mb-1">{isRtl ? "اشترِ أو أهدِ" : "Buy or Gift"}</h4>
                     <p className="text-gray-500 text-sm leading-relaxed">{isRtl ? "اطلب لنفسك أو حدد عنوان شخص آخر لإرسال هديتك مباشرة من أقرب متجر إليه" : "Order for yourself or enter someone else's address to send a gift from the nearest store to them"}</p>
                   </div>
                 </div>
               </div>
+
               <div className="bg-primary rounded-3xl p-6 text-white">
-                <div className={`flex items-start gap-4 ${isRtl ? "flex-row-reverse" : ""}`}>
+                <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center flex-shrink-0">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill="white"/></svg>
                   </div>
-                  <div className={isRtl ? "text-right" : ""}>
+                  <div className="text-start">
                     <h4 className="font-bold mb-1">{isRtl ? "دفع آمن ومحمي" : "Safe & Secure Payments"}</h4>
                     <p className="text-white/75 text-sm leading-relaxed">{isRtl ? "بوابات دفع موثوقة وتشفير عالي المستوى لحماية بياناتك في كل طلب" : "Trusted payment gateways with high-level encryption protecting your data every time"}</p>
                   </div>
                 </div>
               </div>
+
             </div>
           </motion.div>
         </div>

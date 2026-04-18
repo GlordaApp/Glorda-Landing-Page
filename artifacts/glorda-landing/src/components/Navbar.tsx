@@ -32,16 +32,17 @@ export function Navbar() {
         : "bg-primary/80 backdrop-blur-md"
     } border-b border-white/10`}>
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
-        <div className={`flex items-center h-18 py-3 gap-6 ${isRtl ? "flex-row-reverse" : ""}`}>
+        <div className="flex items-center h-18 py-3 gap-6">
 
-          {/* Logo */}
+          {/* Logo — always at the inline-start (right in RTL, left in LTR) */}
           <a href="#home" className="flex-shrink-0 flex items-center">
             <img src={glordaIcon} alt="Glorda" className="h-12 w-auto object-contain mix-blend-screen" data-testid="navbar-logo" />
           </a>
 
           {/* Desktop Nav */}
-          <div className={`hidden md:flex flex-1 items-center justify-between ${isRtl ? "flex-row-reverse" : ""}`}>
-            <div className={`flex items-center gap-1 ${isRtl ? "flex-row-reverse" : ""}`}>
+          <div className="hidden md:flex flex-1 items-center justify-between">
+            {/* Nav links — flow with direction */}
+            <div className="flex items-center gap-1">
               {navLinks.map((link) => (
                 <a key={link.href} href={link.href}
                   className="text-white/80 hover:text-white font-medium text-sm transition-colors duration-200 px-3.5 py-2 rounded-xl hover:bg-white/10">
@@ -50,7 +51,8 @@ export function Navbar() {
               ))}
             </div>
 
-            <div className={`flex items-center gap-3 ${isRtl ? "flex-row-reverse" : ""}`}>
+            {/* Actions — pushed to inline-end */}
+            <div className="flex items-center gap-3">
               <button
                 onClick={toggleLang}
                 className="flex items-center gap-2 text-white/85 hover:text-white text-[11px] font-bold tracking-wider transition-all duration-200 border border-white/25 rounded-xl px-3.5 py-2 hover:bg-white/15 hover:border-white/40 bg-white/5"
@@ -62,13 +64,12 @@ export function Navbar() {
                 </svg>
                 {language === "ar" ? "EN" : "عربي"}
               </button>
-
               <DownloadButton variant="light" size="sm" isRtl={isRtl} />
             </div>
           </div>
 
-          {/* Mobile right side */}
-          <div className={`flex md:hidden items-center gap-2 ${isRtl ? "" : "ms-auto"} ${isRtl ? "me-auto" : ""}`}>
+          {/* Mobile right-side controls (always at end of flex) */}
+          <div className="flex md:hidden items-center gap-2 ms-auto rtl:ms-0 rtl:me-auto">
             <button
               onClick={toggleLang}
               className="flex items-center gap-1.5 text-white/85 text-[11px] font-bold tracking-wider border border-white/25 rounded-xl px-3 py-1.5 hover:bg-white/15 bg-white/5 transition-all"
@@ -94,11 +95,11 @@ export function Navbar() {
             <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (
                 <a key={link.href} href={link.href} onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 rounded-xl text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 transition-colors ${isRtl ? "text-right" : ""}`}>
+                  className="block px-4 py-3 rounded-xl text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 transition-colors text-start">
                   {link.label}
                 </a>
               ))}
-              <div className={`pt-3 flex gap-2 ${isRtl ? "flex-row-reverse" : ""}`}>
+              <div className="pt-3">
                 <DownloadButton variant="light" size="sm" isRtl={isRtl} className="w-full justify-center" />
               </div>
             </div>

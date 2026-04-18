@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>Glorda – غلوردا</title>
     <link rel="icon" id="dynamic-favicon" type="image/jpeg" href="" />
+    <script>
+      (function () {
+        try {
+          var lang = localStorage.getItem("glorda_lang") || "ar";
+          document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
+          document.documentElement.lang = lang === "en" ? "en" : "ar";
+        } catch (_) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

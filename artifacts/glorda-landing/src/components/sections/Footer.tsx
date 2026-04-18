@@ -1,46 +1,16 @@
 import { useI18n } from "@/lib/i18n";
 import glordaIcon from "@assets/glorda_icon_white.webp";
-import {
-  FaInstagram,
-  FaTiktok,
-  FaFacebook,
-  FaLinkedin,
-  FaPinterest,
-} from "react-icons/fa";
+import { FaInstagram, FaTiktok, FaFacebook, FaLinkedin, FaPinterest } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { DownloadButton } from "@/components/DownloadButton";
 
 const socials = [
-  {
-    icon: <FaInstagram size={17} />,
-    label: "Instagram",
-    href: "https://www.instagram.com/glordaapp?igsh=MWZ3bzZnNHE0YXI1Mw%3D%3D&utm_source=qr",
-  },
-  {
-    icon: <FaTiktok size={17} />,
-    label: "TikTok",
-    href: "https://www.tiktok.com/@glordaapp?_r=1&_t=ZS-94QLc5WevTA",
-  },
-  {
-    icon: <FaFacebook size={17} />,
-    label: "Facebook",
-    href: "https://www.facebook.com/share/1FrLJcr7Xf/?mibextid=wwXIfr",
-  },
-  {
-    icon: <FaXTwitter size={17} />,
-    label: "X (Twitter)",
-    href: "https://x.com/glordaapp?s=21",
-  },
-  {
-    icon: <FaLinkedin size={17} />,
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/company/glorda/",
-  },
-  {
-    icon: <FaPinterest size={17} />,
-    label: "Pinterest",
-    href: "https://pin.it/26k3hxXWj",
-  },
+  { icon: <FaInstagram size={17} />, label: "Instagram", href: "https://www.instagram.com/glordaapp?igsh=MWZ3bzZnNHE0YXI1Mw%3D%3D&utm_source=qr" },
+  { icon: <FaTiktok size={17} />, label: "TikTok", href: "https://www.tiktok.com/@glordaapp?_r=1&_t=ZS-94QLc5WevTA" },
+  { icon: <FaFacebook size={17} />, label: "Facebook", href: "https://www.facebook.com/share/1FrLJcr7Xf/?mibextid=wwXIfr" },
+  { icon: <FaXTwitter size={17} />, label: "X (Twitter)", href: "https://x.com/glordaapp?s=21" },
+  { icon: <FaLinkedin size={17} />, label: "LinkedIn", href: "https://www.linkedin.com/company/glorda/" },
+  { icon: <FaPinterest size={17} />, label: "Pinterest", href: "https://pin.it/26k3hxXWj" },
 ];
 
 const EmailIcon = () => (
@@ -61,19 +31,18 @@ export function Footer() {
 
   return (
     <footer className="bg-[#0D0D0D] text-white pt-16 pb-8 relative overflow-hidden">
-      {/* Top glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-32 bg-primary/8 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 end-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
 
-        {/* Main grid — 5 columns: brand | links | contact | social | download */}
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12 ${isRtl ? "text-right" : "text-left"}`}>
+        {/* 5-column grid — direction-aware */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
 
-          {/* Col 1 — Brand + description */}
-          <div className={`lg:col-span-1 flex flex-col gap-4 ${isRtl ? "items-end" : "items-start"}`}>
+          {/* Col 1 — Brand */}
+          <div className="lg:col-span-1 flex flex-col gap-4 items-start">
             <img src={glordaIcon} alt="Glorda" className="h-14 w-auto object-contain mix-blend-screen" />
-            <p className="text-white/45 text-sm leading-relaxed">
+            <p className="text-white/45 text-sm leading-relaxed text-start">
               {isRtl
                 ? "تطبيق يوسّع حضور سوق الهدايا والورود بالسعودية، بكل مكان ومع عدة شركاء وآلاف المنتجات."
                 : "An app expanding the gifts & flowers market across Saudi Arabia — everywhere, with many partners and thousands of products."}
@@ -81,8 +50,8 @@ export function Footer() {
           </div>
 
           {/* Col 2 — Important links */}
-          <div className={`flex flex-col gap-3 ${isRtl ? "items-end" : "items-start"}`}>
-            <h4 className="text-white font-bold text-sm tracking-wide mb-1">
+          <div className="flex flex-col gap-3 items-start">
+            <h4 className="text-white font-bold text-sm tracking-wide mb-1 text-start">
               {isRtl ? "روابط مهمة" : "Important Links"}
             </h4>
             {[
@@ -90,11 +59,8 @@ export function Footer() {
               { ar: "الشروط والأحكام", en: "Terms & Conditions", href: "#terms"   },
               { ar: "من نحن",          en: "About Us",           href: "#about"   },
             ].map((l, i) => (
-              <a
-                key={i}
-                href={l.href}
-                className="flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors group"
-              >
+              <a key={i} href={l.href}
+                className="flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors group">
                 <span className="w-1 h-1 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                 {isRtl ? l.ar : l.en}
               </a>
@@ -102,25 +68,19 @@ export function Footer() {
           </div>
 
           {/* Col 3 — Contact */}
-          <div className={`flex flex-col gap-3 ${isRtl ? "items-end" : "items-start"}`}>
-            <h4 className="text-white font-bold text-sm tracking-wide mb-1">
+          <div className="flex flex-col gap-3 items-start">
+            <h4 className="text-white font-bold text-sm tracking-wide mb-1 text-start">
               {isRtl ? "تواصل معنا" : "Contact Us"}
             </h4>
-            <a
-              href="mailto:info@glorda.com"
-              className={`flex items-center gap-2.5 text-white/50 text-sm hover:text-white transition-colors group ${isRtl ? "flex-row-reverse" : ""}`}
-            >
+            <a href="mailto:info@glorda.com"
+              className="flex items-center gap-2.5 text-white/50 text-sm hover:text-white transition-colors group">
               <span className="w-7 h-7 rounded-lg bg-white/6 border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-200 flex-shrink-0">
                 <EmailIcon />
               </span>
               <span dir="ltr">info@glorda.com</span>
             </a>
-            <a
-              href="https://wa.me/966542400331"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-2.5 text-white/50 text-sm hover:text-white transition-colors group ${isRtl ? "flex-row-reverse" : ""}`}
-            >
+            <a href="https://wa.me/966542400331" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2.5 text-white/50 text-sm hover:text-white transition-colors group">
               <span className="w-7 h-7 rounded-lg bg-white/6 border border-white/10 flex items-center justify-center text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-all duration-200 flex-shrink-0">
                 <WhatsappIcon />
               </span>
@@ -128,21 +88,15 @@ export function Footer() {
             </a>
           </div>
 
-          {/* Col 4 — Social icons */}
-          <div className={`flex flex-col gap-3 ${isRtl ? "items-end" : "items-start"}`}>
-            <h4 className="text-white font-bold text-sm tracking-wide mb-1">
+          {/* Col 4 — Social */}
+          <div className="flex flex-col gap-3 items-start">
+            <h4 className="text-white font-bold text-sm tracking-wide mb-1 text-start">
               {isRtl ? "تابعنا" : "Follow Us"}
             </h4>
             <div className="flex flex-wrap gap-2">
               {socials.map((s, i) => (
-                <a
-                  key={i}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-8 h-8 rounded-lg bg-white/6 border border-white/10 flex items-center justify-center text-white/55 hover:bg-primary hover:text-white hover:border-primary transition-all duration-200"
-                >
+                <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
+                  className="w-8 h-8 rounded-lg bg-white/6 border border-white/10 flex items-center justify-center text-white/55 hover:bg-primary hover:text-white hover:border-primary transition-all duration-200">
                   {s.icon}
                 </a>
               ))}
@@ -150,24 +104,21 @@ export function Footer() {
           </div>
 
           {/* Col 5 — Download */}
-          <div className={`flex flex-col gap-3 ${isRtl ? "items-end" : "items-start"}`}>
-            <h4 className="text-white font-bold text-sm tracking-wide mb-1">
+          <div className="flex flex-col gap-3 items-start">
+            <h4 className="text-white font-bold text-sm tracking-wide mb-1 text-start">
               {isRtl ? "حمّل التطبيق" : "Download App"}
             </h4>
-            <p className="text-white/35 text-xs leading-relaxed">
+            <p className="text-white/35 text-xs leading-relaxed text-start">
               {isRtl ? "متوفر على iOS وAndroid" : "Available on iOS & Android"}
             </p>
             <DownloadButton variant="outline-light" size="sm" isRtl={isRtl} />
           </div>
-
         </div>
 
-        {/* Divider */}
+        {/* Copyright */}
         <div className="border-t border-white/8 pt-6 flex items-center justify-center">
           <span className="text-white/30 text-xs">
-            {isRtl
-              ? "جميع الحقوق محفوظة © Glorda 2026"
-              : "All rights reserved © Glorda 2026"}
+            {isRtl ? "جميع الحقوق محفوظة © Glorda 2026" : "All rights reserved © Glorda 2026"}
           </span>
         </div>
 
