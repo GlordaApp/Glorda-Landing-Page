@@ -1,5 +1,5 @@
 import { useI18n } from "@/lib/i18n";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 
 import screenHome      from "@assets/55626544-e2c3-4b50-9fd7-6cf13dad9ecf_1776482044919.webp";
@@ -62,7 +62,7 @@ const screens = [
 
 const INTERVAL = 3800;
 
-const phoneVariants = {
+const phoneVariants: Variants = {
   enter: (dir: number) => ({
     x: dir > 0 ? 320 : -320,
     rotateY: dir > 0 ? 40 : -40,
@@ -89,7 +89,7 @@ const phoneVariants = {
     opacity: 0,
     scale: 0.82,
     filter: "blur(6px)",
-    transition: { duration: 0.28, ease: "easeIn" },
+    transition: { duration: 0.28, ease: "easeIn" as const },
   }),
 };
 

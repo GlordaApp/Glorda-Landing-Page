@@ -3,6 +3,10 @@
   command = "pnpm --filter @workspace/glorda-landing run build"
   publish = "artifacts/glorda-landing/dist"
 
+[build.environment]
+  NODE_VERSION = "20"
+  PNPM_VERSION = "10"
+
 [[redirects]]
   from   = "/*"
   to     = "/index.html"
