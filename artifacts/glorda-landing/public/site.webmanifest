@@ -1,0 +1,25 @@
+{
+  "name": "غلوردا - Glorda",
+  "short_name": "غلوردا",
+  "description": "منصة السعودية الأولى لطلب الورود والهدايا والكيك والشوكولاتة",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#A51245",
+  "theme_color": "#A51245",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/icon-192.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}
