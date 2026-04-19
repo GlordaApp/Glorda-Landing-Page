@@ -3,6 +3,9 @@
   "outputDirectory": "artifacts/glorda-landing/dist",
   "installCommand": "pnpm install",
   "framework": null,
+  "env": {
+    "NODE_VERSION": "20"
+  },
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
