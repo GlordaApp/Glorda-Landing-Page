@@ -8,6 +8,7 @@ import screenProduct2  from "@assets/cc530233-8d4d-404b-8041-85957a1a52f1_177648
 import screenProduct3  from "@assets/36729288-66d0-4b4c-bf46-ff21e710ac48_1776482044919.webp";
 import screenOccasions from "@assets/d6e90815-2c73-42bb-97ce-9c7fa668bfbe_1776482044919.webp";
 import screenExtra     from "@assets/7a7be72c-3110-44af-bf0c-f27ce80e3549_1776482044919.webp";
+import screenStore     from "@assets/screen_store_1776987430756.webp";
 
 const screens = [
   {
@@ -57,6 +58,14 @@ const screens = [
     descAr: "تواصل مع المتاجر مباشرةً من داخل التطبيق بكل سهولة",
     descEn: "Chat directly with stores right inside the app",
     accent: "#C8963E",
+  },
+  {
+    src: screenStore,
+    labelAr: "صفحة المتجر",
+    labelEn: "Store Page",
+    descAr: "تفاصيل المتجر ومنتجاته وتقييمات العملاء في مكان واحد",
+    descEn: "Store details, products, and customer reviews all in one place",
+    accent: "#A51245",
   },
 ];
 
