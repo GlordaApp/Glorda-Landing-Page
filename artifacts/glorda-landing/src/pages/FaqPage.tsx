@@ -1,7 +1,7 @@
 import { useI18n } from "@/lib/i18n";
 import { AppNavbar } from "@/components/AppNavbar";
 import { AppFooter } from "@/components/AppFooter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const customersAr = [
@@ -157,6 +157,25 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
 export default function FaqPage() {
   const { isRtl } = useI18n();
   const [tab, setTab] = useState<"customers" | "partners">("customers");
+
+  useEffect(() => {
+    const allQA = [...customersAr, ...partnersAr];
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": allQA.map(({ q, a }) => ({
+        "@type": "Question",
+        "name": q,
+        "acceptedAnswer": { "@type": "Answer", "text": a },
+      })),
+    };
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "faq-schema";
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+    return () => { document.getElementById("faq-schema")?.remove(); };
+  }, []);
 
   const customersData = isRtl ? customersAr : customersEn;
   const partnersData  = isRtl ? partnersAr  : partnersEn;
