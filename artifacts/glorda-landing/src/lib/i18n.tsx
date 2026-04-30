@@ -98,7 +98,7 @@ const translations = {
     "join.feature.2": "Reach customers near your location",
     "join.feature.3": "Manage orders from one simple dashboard",
     "join.feature.4": "Grow your sales from day one",
-    "join.cta": "List Your Products Now",
+    "join.cta": "Open Your Store for Free Now",
 
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Use",
@@ -193,7 +193,7 @@ const translations = {
     "join.feature.2": "وصّل منتجاتك للعملاء القريبين منك",
     "join.feature.3": "أدر طلباتك من لوحة تحكم بسيطة",
     "join.feature.4": "ابدأ بتنمية مبيعاتك من اليوم الأول",
-    "join.cta": "اعرض منتجاتك الآن",
+    "join.cta": "افتح متجرك مجاناً الآن",
 
     "footer.privacy": "سياسة الخصوصية",
     "footer.terms": "شروط الاستخدام",
