@@ -3,22 +3,10 @@
  * Shows both store logos in one button.
  */
 
-const APP_STORE_URL = "https://apps.apple.com/sa/app/glorda/id6757753822?l=ar";
-const PLAY_STORE_URL = "https://play.google.com/store";
-
-function detectStore(): "ios" | "android" | "unknown" {
-  if (typeof navigator === "undefined") return "unknown";
-  const ua = navigator.userAgent;
-  if (/iphone|ipad|ipod/i.test(ua)) return "ios";
-  if (/android/i.test(ua)) return "android";
-  return "unknown";
-}
+const DOWNLOAD_URL = "https://jmgyuw.short.gy/";
 
 function handleDownload() {
-  const store = detectStore();
-  if (store === "ios") window.open(APP_STORE_URL, "_blank");
-  else if (store === "android") window.open(PLAY_STORE_URL, "_blank");
-  else window.open(APP_STORE_URL, "_blank"); // default for desktop
+  window.open(DOWNLOAD_URL, "_blank");
 }
 
 /* Real Apple logo SVG */
