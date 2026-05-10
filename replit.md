@@ -1,51 +1,51 @@
-# Workspace
+# Glorda – غلوردا
 
-## Overview
+Premium bilingual (Arabic RTL / English LTR) marketing landing page for Glorda, a Saudi marketplace for flowers, cakes, gifts, and sweets.
 
-pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
+## Run & Operate
+
+- `pnpm --filter @workspace/glorda-landing run dev` — run the landing page dev server
+- `pnpm run typecheck` — full typecheck across all packages
+- `pnpm run build` — typecheck + build all packages
 
 ## Stack
 
-- **Monorepo tool**: pnpm workspaces
-- **Node.js version**: 24
-- **Package manager**: pnpm
-- **TypeScript version**: 5.9
-- **API framework**: Express 5
-- **Database**: PostgreSQL + Drizzle ORM
-- **Validation**: Zod (`zod/v4`), `drizzle-zod`
-- **API codegen**: Orval (from OpenAPI spec)
-- **Build**: esbuild (CJS bundle)
+- pnpm workspaces, Node.js 24, TypeScript 5.9
+- Frontend: React + Vite + Tailwind CSS v4
+- Animations: Framer Motion
+- Routing: Wouter
+- i18n: custom React Context (AR default, EN toggle)
+- Icons: react-icons + custom SVG paths
 
-## Key Commands
+## Where things live
 
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- `pnpm --filter @workspace/api-server run dev` — run API server locally
+- `artifacts/glorda-landing/src/` — main landing page source
+- `artifacts/glorda-landing/src/pages/` — Home, About, Privacy, Terms, Support, FAQ
+- `artifacts/glorda-landing/src/components/sections/` — Hero, About, Features, HowItWorks, Merchants, AppScreenshots, Testimonials, Download, Footer
+- `artifacts/glorda-landing/src/lib/i18n.tsx` — bilingual content (AR/EN)
+- `artifacts/glorda-landing/src/index.css` — Tailwind + custom CSS tokens
+- `artifacts/glorda-landing/src/assets/` — brand images and screenshots
 
-See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
+## Architecture decisions
 
-## Glorda Landing Page (`artifacts/glorda-landing`)
+- Arabic-first RTL design; language toggle switches dir and all text
+- Tailwind v4 with custom color tokens: primary `#A51245` (crimson), secondary `#C8963E` (gold)
+- Wouter for client-side routing with lazy-loaded pages
+- All icons are custom SVG or react-icons (no emoji)
 
-Premium bilingual (Arabic RTL / English LTR) marketing landing page for "Glorda – غلوردا", a Saudi marketplace for flowers, cakes, gifts, and sweets.
+## Product
 
-### Sections
-- **Navbar** — Scroll-aware fixed top bar, white logo, language toggle (AR/EN), App Store CTA, mobile drawer
-- **Hero** — Full-viewport crimson background, phone mockup with app UI, stat row, bottom wave
-- **About** — 4 category cards (flowers, cakes, gifts, sweets) with custom SVG icons, feature checklist, info cards
-- **Features** — 5 feature cards in 3-2 layout with custom SVG icons and gradient accents
-- **HowItWorks** — 5-step numbered flow with custom step icons
-- **Merchants** — Split layout: feature list + browser dashboard mockup (stats, chart, orders)
-- **AppScreenshots** — 5 phone mockups with varied in-app screen designs
-- **Testimonials** — Featured crimson review card + 4-card review grid with star ratings
-- **Download** — Crimson CTA card with App Store / Google Play buttons and QR code visual
-- **Footer** — Dark footer with logo, quick links, legal links, social icons, app download buttons
+Glorda landing page with full marketing sections: hero with phone mockup, about/categories, features, how-it-works, merchant dashboard preview, app screenshots carousel, testimonials, download CTA (App Store + Google Play), and footer. Fully bilingual AR/EN with RTL support.
 
-### Key Tech
-- React + Vite + TypeScript
-- Framer Motion animations
-- Tailwind CSS with custom primary (#A51245) and secondary (#C8963E) color tokens
-- i18n system via React Context (default: Arabic, RTL)
-- Brand assets: white logo, dark logo, app icon favicon
-- No emoji policy — all icons are custom SVG paths or react-icons
+## User preferences
+
+_Populate as you build._
+
+## Gotchas
+
+- The app is a static Vite SPA — no backend or API required
+- `BASE_URL` env var is wired by workflow; always use `import.meta.env.BASE_URL` for routing base
+
+## Pointers
+
+- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
